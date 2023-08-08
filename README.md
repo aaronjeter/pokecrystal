@@ -10,26 +10,37 @@ Goals:
   To create a hack for fun
 
   Create a better gen 2 experience:
+  
+  
     All 251 Pokemon should be attainable
-    All Pokemon should have functional movesets    
+    
+    All Pokemon should have functional movesets   
+    
     Reduce HM constraints on party building
+    
       HM moves should be desirable in battle
       HM requirments should be less restrictive/annoying during travel
+      
 
   Create a more challenging experience:  
+  
     Implement a badge based level cap
     Rebalance trainers with more powerful, varied, and interesting teams
     Rebalance Gym leaders to be at the Level Cap for their area
     Fix Kanto's level curve
+    
 
   Create a more varied experience:
+  
     Many pokemon types have changed to remove redundancy
     Much more variety in teambuilding options
     Rare spawns in each area
     Drastically increased Shiny odds
       Max Special dv = Shiny. Because, you know...they're special.
+      
 
   Create a more interesting Pokemon League:
+  
     Gyms should be a significant milestone
     Gyms should be a relevant training method
     Trainer Pokemon can have individual dvs, stat experience, and nicknames
