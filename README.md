@@ -61,6 +61,7 @@ Changes Implemented:
       
 
   Pokemon:
+    Starter Pokemon have been changed
     Many Pokemon types updated
     Many Pokemon evolution methods updated
       Trade evolutions replaced with appropriate levels
