@@ -35,6 +35,7 @@ AzaleaGymBugsyScript:
 .FightDone:
 	checkevent EVENT_GOT_TM49_FURY_CUTTER
 	iftrue .GotFuryCutter
+	loadmem wLevelCap, 25
 	setevent EVENT_BEAT_TWINS_AMY_AND_MAY
 	setevent EVENT_BEAT_BUG_CATCHER_BENNY
 	setevent EVENT_BEAT_BUG_CATCHER_AL
@@ -50,8 +51,15 @@ AzaleaGymBugsyScript:
 	end
 
 .GotFuryCutter:
-	writetext BugsyText_BugMonsAreDeep
+	writetext BugsyRematchText
+	winlosstext BugsyRematchLossText, 0
+	loadtrainer BUGSY, BUGSY1
+	startbattle
+	reloadmapafterbattle
+	opentext
+	writetext BugsyRematchLossText
 	waitbutton
+	closetext
 .NoRoomForFuryCutter:
 	closetext
 	end
@@ -94,10 +102,10 @@ TrainerBugCatcherBenny:
 
 .AfterScript:
 	endifjustbattled
-	opentext
-	writetext BugCatcherBennyAfterBattleText
-	waitbutton
-	closetext
+	winlosstext BugCatcherBennyBeatenText, 0
+	loadtrainer BUG_CATCHER, BUG_CATCHER_BENNY
+	startbattle
+	reloadmapafterbattle
 	end
 
 TrainerBugCatcherAl:
@@ -105,10 +113,10 @@ TrainerBugCatcherAl:
 
 .AfterScript:
 	endifjustbattled
-	opentext
-	writetext BugCatcherAlAfterBattleText
-	waitbutton
-	closetext
+	winlosstext BugCatcherAlBeatenText, 0
+	loadtrainer BUG_CATCHER, AL
+	startbattle
+	reloadmapafterbattle
 	end
 
 TrainerBugCatcherJosh:
@@ -116,10 +124,10 @@ TrainerBugCatcherJosh:
 
 .AfterScript:
 	endifjustbattled
-	opentext
-	writetext BugCatcherJoshAfterBattleText
-	waitbutton
-	closetext
+	winlosstext BugCatcherJoshBeatenText, 0
+	loadtrainer BUG_CATCHER, JOSH
+	startbattle
+	reloadmapafterbattle
 	end
 
 AzaleaGymGuideScript:
@@ -130,6 +138,14 @@ AzaleaGymGuideScript:
 	writetext AzaleaGymGuideText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 .AzaleaGymGuideWinScript:
@@ -137,6 +153,14 @@ AzaleaGymGuideScript:
 	writetext AzaleaGymGuideWinText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 AzaleaGymStatue:
@@ -187,11 +211,8 @@ BugsyText_HiveBadgeSpeech:
 	line "benefits of HIVE-"
 	cont "BADGE?"
 
-	para "If you have it,"
-	line "#MON up to L30"
-
-	para "will obey you,"
-	line "even traded ones."
+	para "You can now level"
+	line "#MON to level 25"
 
 	para "#MON that know"
 	line "CUT will be able"
@@ -229,6 +250,16 @@ BugsyText_BugMonsAreDeep:
 	para "Study your favor-"
 	line "ites thoroughly."
 	done
+	
+BugsyRematchText:
+	text "That was fun!"
+	line "Let's go again!"
+	done
+	
+BugsyRematchLossText:
+	text "Whew!"
+	line "Good progress."
+	done	
 
 BugCatcherBennySeenText:
 	text "Bug #MON evolve"

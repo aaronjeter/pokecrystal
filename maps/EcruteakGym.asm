@@ -47,6 +47,7 @@ EcruteakGymMortyScript:
 .FightDone:
 	checkevent EVENT_GOT_TM30_SHADOW_BALL
 	iftrue .GotShadowBall
+	loadmem wLevelCap, 35
 	setevent EVENT_BEAT_SAGE_JEFFREY
 	setevent EVENT_BEAT_SAGE_PING
 	setevent EVENT_BEAT_MEDIUM_MARTHA
@@ -243,6 +244,9 @@ MortyText_FogBadgeSpeech:
 
 	para "able to use that"
 	line "move anytime."
+	
+	para "You can now level"
+	line "#MON to level 35"
 
 	para "I want you to have"
 	line "this too."

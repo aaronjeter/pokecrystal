@@ -30,6 +30,7 @@ OlivineGymJasmineScript:
 .FightDone:
 	checkevent EVENT_GOT_TM23_IRON_TAIL
 	iftrue .GotIronTail
+	loadmem wLevelCap, 45
 	writetext Jasmine_BadgeSpeech
 	promptbutton
 	verbosegiveitem TM_IRON_TAIL
@@ -140,6 +141,9 @@ Jasmine_BadgeSpeech:
 	text "MINERALBADGE"
 	line "raises #MON's"
 	cont "DEFENSE."
+	
+	para "You can now level"
+	line "#MON to level 45"
 
 	para "…Um… Please take"
 	line "this too…"

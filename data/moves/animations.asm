@@ -29,7 +29,7 @@ BattleAnimations::
 	dw BattleAnim_MegaKick
 	dw BattleAnim_JumpKick
 	dw BattleAnim_RollingKick
-	dw BattleAnim_SandAttack
+	dw BattleAnim_PixieDust
 	dw BattleAnim_Headbutt
 	dw BattleAnim_HornAttack
 	dw BattleAnim_FuryAttack
@@ -50,7 +50,7 @@ BattleAnimations::
 	dw BattleAnim_Roar
 	dw BattleAnim_Sing
 	dw BattleAnim_Supersonic
-	dw BattleAnim_Sonicboom
+	dw BattleAnim_FaeVoice
 	dw BattleAnim_Disable
 	dw BattleAnim_Acid
 	dw BattleAnim_Ember
@@ -1315,7 +1315,7 @@ BattleAnim_RazorWind:
 	anim_wait 24
 	anim_ret
 
-BattleAnim_Sonicboom_JP: ; unreferenced
+BattleAnim_FaeVoice_JP: ; unreferenced
 	anim_2gfx ANIM_GFX_WHIP, ANIM_GFX_HIT
 .loop
 	anim_sound 3, 0, SFX_RAZOR_WIND
@@ -1340,7 +1340,7 @@ BattleAnim_Sonicboom_JP: ; unreferenced
 	anim_ret
 
 BattleAnim_Gust:
-BattleAnim_Sonicboom:
+BattleAnim_FaeVoice:
 	anim_2gfx ANIM_GFX_WIND, ANIM_GFX_HIT
 .loop
 	anim_sound 0, 1, SFX_RAZOR_WIND
@@ -2040,7 +2040,7 @@ BattleAnim_Dig:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_SandAttack:
+BattleAnim_PixieDust:
 	anim_1gfx ANIM_GFX_SAND
 	anim_call BattleAnimSub_SandOrMud
 	anim_ret

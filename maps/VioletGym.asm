@@ -32,6 +32,7 @@ VioletGymFalknerScript:
 .FightDone:
 	checkevent EVENT_GOT_TM31_MUD_SLAP
 	iftrue .SpeechAfterTM
+	loadmem wLevelCap, 20
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
@@ -47,8 +48,15 @@ VioletGymFalknerScript:
 	end
 
 .SpeechAfterTM:
-	writetext FalknerFightDoneText
+	writetext FalknerRematchText
+	winlosstext FalknerWinLossText, 0
+	loadtrainer FALKNER, FALKNER1
+	startbattle
+	reloadmapafterbattle
+	opentext
+	writetext FalknerRematchWinTest
 	waitbutton
+	closetext
 .NoRoomForMudSlap:
 	closetext
 	end
@@ -69,10 +77,10 @@ TrainerBirdKeeperRod:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BirdKeeperRodAfterBattleText
-	waitbutton
-	closetext
+	winlosstext BirdKeeperRodBeatenText, 0
+	loadtrainer BIRD_KEEPER, ROD
+	startbattle
+	reloadmapafterbattle
 	end
 
 TrainerBirdKeeperAbe:
@@ -80,10 +88,10 @@ TrainerBirdKeeperAbe:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BirdKeeperAbeAfterBattleText
-	waitbutton
-	closetext
+	winlosstext BirdKeeperAbeBeatenText, 0
+	loadtrainer BIRD_KEEPER, ABE
+	startbattle
+	reloadmapafterbattle
 	end
 
 VioletGymGuideScript:
@@ -94,12 +102,28 @@ VioletGymGuideScript:
 	writetext VioletGymGuideText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 .VioletGymGuideWinScript:
 	writetext VioletGymGuideWinText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 VioletGymStatue:
@@ -144,6 +168,21 @@ FalknerWinLossText:
 	para "It's the official"
 	line "#MON LEAGUE"
 	cont "ZEPHYRBADGE."
+	
+	para "You can now level"
+	line "#MON to level 20"
+	done
+	
+FalknerRematchText:
+	text "Let's see how"
+	line "high you've" 
+	
+	para "flown since"
+	line "last time!"
+	done
+	
+FalknerRematchWinTest:
+	text "Way to soar!"
 	done
 
 ReceivedZephyrBadgeText:
@@ -172,10 +211,6 @@ FalknerTMMudSlapText:
 
 	para "instantly learn a"
 	line "new move."
-
-	para "Think before you"
-	line "act--a TM can be"
-	cont "used only once."
 
 	para "TM31 contains"
 	line "MUD-SLAP."

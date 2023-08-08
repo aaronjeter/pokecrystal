@@ -67,6 +67,7 @@ GoldenrodGymWhitneyScript:
 	verbosegiveitem TM_ATTRACT
 	iffalse .NoRoomForAttract
 	setevent EVENT_GOT_TM45_ATTRACT
+	loadmem wLevelCap, 30
 	writetext WhitneyAttractText
 	waitbutton
 	closetext
@@ -243,6 +244,9 @@ WhitneyPlainBadgeText:
 	para "It also boosts"
 	line "your #MON's"
 	cont "SPEED."
+	
+	para "You can now level"
+	line "#MON to level 30"
 
 	para "Oh, you can have"
 	line "this too!"

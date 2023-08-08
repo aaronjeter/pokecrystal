@@ -52,6 +52,7 @@ CianwoodGymChuckScript:
 .FightDone:
 	checkevent EVENT_GOT_TM01_DYNAMICPUNCH
 	iftrue .AlreadyGotTM
+	loadmem wLevelCap, 40
 	setevent EVENT_BEAT_BLACKBELT_YOSHI
 	setevent EVENT_BEAT_BLACKBELT_LAO
 	setevent EVENT_BEAT_BLACKBELT_NOB
@@ -204,6 +205,9 @@ ChuckExplainBadgeText:
 
 	para "L70 obey, even"
 	line "traded ones."
+	
+	para "You can now level"
+	line "#MON to level 40"
 
 	para "It also lets your"
 	line "#MON use FLY"

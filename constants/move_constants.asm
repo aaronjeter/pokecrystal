@@ -33,7 +33,7 @@
 	const MEGA_KICK    ; 19
 	const JUMP_KICK    ; 1a
 	const ROLLING_KICK ; 1b
-	const SAND_ATTACK  ; 1c
+	const PIXIE_DUST   ; 1c
 	const HEADBUTT     ; 1d
 	const HORN_ATTACK  ; 1e
 	const FURY_ATTACK  ; 1f
@@ -54,7 +54,7 @@
 	const ROAR         ; 2e
 	const SING         ; 2f
 	const SUPERSONIC   ; 30
-	const SONICBOOM    ; 31
+	const FAE_VOICE    ; 31
 	const DISABLE      ; 32
 	const ACID         ; 33
 	const EMBER        ; 34

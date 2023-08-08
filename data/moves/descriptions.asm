@@ -28,7 +28,7 @@ MoveDescriptions::
 	dw MegaKickDescription
 	dw JumpKickDescription
 	dw RollingKickDescription
-	dw SandAttackDescription
+	dw PixieDustDescription
 	dw HeadbuttDescription
 	dw HornAttackDescription
 	dw FuryAttackDescription
@@ -49,7 +49,7 @@ MoveDescriptions::
 	dw RoarDescription
 	dw SingDescription
 	dw SupersonicDescription
-	dw SonicboomDescription
+	dw FaeVoiceDescription
 	dw DisableDescription
 	dw AcidDescription
 	dw EmberDescription
@@ -375,9 +375,9 @@ RollingKickDescription:
 	db   "A fast, spinning"
 	next "kick.@"
 
-SandAttackDescription:
+PixieDustDescription:
 	db   "Reduces accuracy"
-	next "by throwing sand.@"
+	next "by throwing dust.@"
 
 HeadbuttDescription:
 	db   "An attack that may"
@@ -459,9 +459,9 @@ SupersonicDescription:
 	db   "Sound waves that"
 	next "cause confusion.@"
 
-SonicboomDescription:
-	db   "Always inflicts"
-	next "20HP damage.@"
+FaeVoiceDescription:
+	db   "An attack that may"
+	next "cause flinching.@"
 
 DisableDescription:
 	db   "Disables the foe's"

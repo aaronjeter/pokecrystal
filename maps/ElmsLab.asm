@@ -161,8 +161,8 @@ CyndaquilPokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic CYNDAQUIL
-	cry CYNDAQUIL
+	pokepic CELEBI
+	cry CELEBI
 	waitbutton
 	closepokepic
 	opentext
@@ -174,12 +174,12 @@ CyndaquilPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, CYNDAQUIL
+	getmonname STRING_BUFFER_3, CELEBI
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CYNDAQUIL, 5, BERRY
+	givepoke CELEBI, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -191,8 +191,8 @@ TotodilePokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic TOTODILE
-	cry TOTODILE
+	pokepic LARVITAR
+	cry LARVITAR
 	waitbutton
 	closepokepic
 	opentext
@@ -204,12 +204,12 @@ TotodilePokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, TOTODILE
+	getmonname STRING_BUFFER_3, LARVITAR
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke TOTODILE, 5, BERRY
+	givepoke LARVITAR, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -219,8 +219,8 @@ ChikoritaPokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic CHIKORITA
-	cry CHIKORITA
+	pokepic MEW
+	cry MEW
 	waitbutton
 	closepokepic
 	opentext
@@ -232,12 +232,12 @@ ChikoritaPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, CHIKORITA
+	getmonname STRING_BUFFER_3, MEW
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CHIKORITA, 5, BERRY
+	givepoke MEW, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -262,10 +262,6 @@ ElmDirectionsScript:
 	waitbutton
 	closetext
 	turnobject ELMSLAB_ELM, LEFT
-	opentext
-	writetext ElmDirectionsText2
-	waitbutton
-	closetext
 	turnobject ELMSLAB_ELM, DOWN
 	opentext
 	writetext ElmDirectionsText3
@@ -858,20 +854,20 @@ LabWhereGoingText:
 
 TakeCyndaquilText:
 	text "ELM: You'll take"
-	line "CYNDAQUIL, the"
-	cont "fire #MON?"
+	line "CELEBI, the"
+	cont "GRASS FAIRY?"
 	done
 
 TakeTotodileText:
-	text "ELM: Do you want"
-	line "TOTODILE, the"
-	cont "water #MON?"
+	text "ELM: So, you like"
+	line "LARVITAR, the"
+	cont "ROCK DARK #MON?"
 	done
 
-TakeChikoritaText:
-	text "ELM: So, you like"
-	line "CHIKORITA, the"
-	cont "grass #MON?"
+TakeChikoritaText:	
+	text "ELM: Do you want"
+	line "MEW, the"
+	cont "PSYCHIC FAIRY?"
 	done
 
 DidntChooseStarterText:
@@ -901,18 +897,6 @@ ElmDirectionsText1:
 
 	para "CHERRYGROVE, the"
 	line "next city over."
-
-	para "It's almost a"
-	line "direct route"
-
-	para "there, so you"
-	line "can't miss it."
-
-	para "But just in case,"
-	line "here's my phone"
-
-	para "number. Call me if"
-	line "anything comes up!"
 	done
 
 ElmDirectionsText2:
@@ -921,9 +905,6 @@ ElmDirectionsText2:
 
 	para "heal it with this"
 	line "machine."
-
-	para "Feel free to use"
-	line "it anytime."
 	done
 
 ElmDirectionsText3:
