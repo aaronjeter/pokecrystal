@@ -37,6 +37,7 @@ Goals:
     Rare spawns in each area
     Drastically increased Shiny odds
       Max Special dv = Shiny. Because, you know...they're special.
+      This works out to roughly 1/16
       
 
   Create a more interesting Pokemon League:
