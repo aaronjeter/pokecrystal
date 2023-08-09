@@ -73,6 +73,7 @@ Changes Implemented:
           Generally learned level 50+, base power 100
     Some move types have been changed to add variety, and to support the new Fairy typing 
     Several new moves have been added
+    TMs are now reusable
       
 
   Pokemon:
@@ -103,3 +104,15 @@ Changes Implemented:
   Trainers:
   
     Trainers can nickname their pokemon, as well as set custom dvs and Stat Xp
+
+
+TODO:
+
+  Find a way around the size limit on evo_attacks.asm, allowing for more levelup moves per Pokemon
+  Allow rebattling of Gymleaders after Bugsy
+  Set the rest of Gym guide's to heal party
+  Settle on final starter options
+  Implement some sort of HM workaround
+  Make Exp Share available earlier (potentially from Mr Pokemon)
+  Find thematically appropriate places for each pokemon to appear
+  
