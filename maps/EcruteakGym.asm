@@ -47,7 +47,7 @@ EcruteakGymMortyScript:
 .FightDone:
 	checkevent EVENT_GOT_TM30_SHADOW_BALL
 	iftrue .GotShadowBall
-	loadmem wLevelCap, 35
+	loadmem wLevelCap, 36
 	setevent EVENT_BEAT_SAGE_JEFFREY
 	setevent EVENT_BEAT_SAGE_PING
 	setevent EVENT_BEAT_MEDIUM_MARTHA
@@ -64,7 +64,10 @@ EcruteakGymMortyScript:
 
 .GotShadowBall:
 	writetext MortyFightDoneText
-	waitbutton
+	winlosstext MortyFightDoneText, 0
+	loadtrainer MORTY, MORTY1
+	startbattle
+	reloadmapafterbattle
 .NoRoomForShadowBall:
 	closetext
 	end
@@ -101,6 +104,10 @@ TrainerSageJeffrey:
 
 .Script:
 	endifjustbattled
+	winlosstext SageJeffreyBeatenText, 0
+	loadtrainer SAGE, JEFFREY
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext SageJeffreyAfterBattleText
 	waitbutton
@@ -112,6 +119,10 @@ TrainerSagePing:
 
 .Script:
 	endifjustbattled
+	winlosstext SagePingBeatenText, 0
+	loadtrainer SAGE, PING
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext SagePingAfterBattleText
 	waitbutton
@@ -123,6 +134,10 @@ TrainerMediumMartha:
 
 .Script:
 	endifjustbattled
+	winlosstext MediumMarthaBeatenText, 0
+	loadtrainer MEDIUM, MARTHA
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext MediumMarthaAfterBattleText
 	waitbutton
@@ -134,6 +149,10 @@ TrainerMediumGrace:
 
 .Script:
 	endifjustbattled
+	winlosstext MediumGraceBeatenText, 0
+	loadtrainer MEDIUM, GRACE
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext MediumGraceAfterBattleText
 	waitbutton
@@ -148,12 +167,28 @@ EcruteakGymGuideScript:
 	writetext EcruteakGymGuideText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 .EcruteakGymGuideWinScript:
 	writetext EcruteakGymGuideWinText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 EcruteakGymStatue:
@@ -246,7 +281,7 @@ MortyText_FogBadgeSpeech:
 	line "move anytime."
 	
 	para "You can now level"
-	line "#MON to level 35"
+	line "#MON to level 36"
 
 	para "I want you to have"
 	line "this too."

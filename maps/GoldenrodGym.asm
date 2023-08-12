@@ -74,8 +74,11 @@ GoldenrodGymWhitneyScript:
 	end
 
 .GotAttract:
-	writetext WhitneyGoodCryText
-	waitbutton
+	writetext WhitneyRematchText
+	winlosstext WhitneyGoodCryText, 0
+	loadtrainer BUGSY, BUGSY1
+	startbattle
+	reloadmapafterbattle
 .NoRoomForAttract:
 	closetext
 	end
@@ -96,10 +99,10 @@ TrainerLassCarrie:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext LassCarrieAfterBattleText
-	waitbutton
-	closetext
+	winlosstext LassCarrieBeatenText, 0
+	loadtrainer LASS, CARRIE
+	startbattle
+	reloadmapafterbattle
 	end
 
 WhitneyCriesScript:
@@ -120,6 +123,10 @@ TrainerLassBridget:
 
 .Script:
 	endifjustbattled
+	winlosstext LassBridgetBeatenText, 0
+	loadtrainer LASS, BRIDGET
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext LassBridgetAfterBattleText
 	waitbutton
@@ -131,6 +138,10 @@ TrainerBeautyVictoria:
 
 .Script:
 	endifjustbattled
+	winlosstext BeautyVictoriaBeatenText, 0
+	loadtrainer BEAUTY, VICTORIA
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext BeautyVictoriaAfterBattleText
 	waitbutton
@@ -138,10 +149,14 @@ TrainerBeautyVictoria:
 	end
 
 TrainerBeautySamantha:
-	trainer BEAUTY, SAMANTHA, EVENT_BEAT_BEAUTY_SAMANTHA, BeautySamanthaSeenText, BeautySamanthaBeatenText, 0, .Script
+	trainer BEAUTY, SAMANTHA, EVENT_BEAT_BEAUTY_SAMANTHA, BeautySamanthaSeenText, SAMANTHA, 0, .Script
 
 .Script:
 	endifjustbattled
+	winlosstext SAMANTHA, 0
+	loadtrainer BEAUTY, SAMANTHA
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext BeautySamanthaAfterBattleText
 	waitbutton
@@ -156,6 +171,14 @@ GoldenrodGymGuideScript:
 	writetext GoldenrodGymGuideText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 .GoldenrodGymGuideWinScript:
@@ -163,6 +186,14 @@ GoldenrodGymGuideScript:
 	writetext GoldenrodGymGuideWinText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 GoldenrodGymStatue:
@@ -270,6 +301,12 @@ WhitneyGoodCryText:
 
 	para "Come for a visit"
 	line "again! Bye-bye!"
+	done
+	
+WhitneyRematchText:
+	text "OK! I think"
+	line "I want to try"
+	cont "again!"
 	done
 
 LassCarrieSeenText:

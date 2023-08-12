@@ -68,6 +68,14 @@ CianwoodGymChuckScript:
 	end
 
 .AlreadyGotTM:
+	opentext
+	writetext ChuckRematchText
+	waitbutton
+	closetext
+	winlosstext ChuckRematchText, 0
+	loadtrainer CHUCK, CHUCK1
+	startbattle
+	reloadmapafterbattle
 	writetext ChuckAfterText
 	waitbutton
 .BagFull:
@@ -240,6 +248,17 @@ ChuckAfterText:
 	para "From now on, I'm"
 	line "going to train 24"
 	cont "hours a day!"
+	done
+	
+ChuckRematchText:
+	text "Ha! Let's do"
+	line "this again!"
+	done
+	
+ChuckRematchLossText:
+	text "You're an"
+	line "Excellent"
+	cont "sparring partner"
 	done
 
 BlackbeltYoshiSeenText:

@@ -506,9 +506,11 @@ VulpixEvosAttacks:
 	db 1, LICK
 	db 1, TAIL_WHIP
 	db 7, QUICK_ATTACK
-	db 13, ROAR
-	db 19, CONFUSE_RAY
-	db 25, HYPNOSIS
+	db 12, ROAR
+	db 16, NIGHT_SHADE
+	db 20, CONFUSE_RAY
+	db 24, HYPNOSIS
+	db 28, CURSE
 	db 32, FLAMETHROWER
 	db 36, SHADOW_BALL
 	db 0 ; no more level-up moves
@@ -519,6 +521,8 @@ NinetalesEvosAttacks:
 	db 1, QUICK_ATTACK
 	db 1, CONFUSE_RAY
 	db 1, SAFEGUARD
+	db 24, HYPNOSIS
+	db 28, CURSE
 	db 32, FLAMETHROWER
 	db 36, SHADOW_BALL
 	db 43, FIRE_SPIN

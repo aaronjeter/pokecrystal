@@ -435,87 +435,87 @@ JohtoGrassWildMons:
 	def_grass_wildmons BURNED_TOWER_1F
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 13, RATTATA
-	db 14, KOFFING
-	db 15, RATTATA
-	db 14, ZUBAT
-	db 15, RATTATA
-	db 15, RATICATE
-	db 15, RATICATE
-	db 13, RATTATA
-	db 14, KOFFING
-	db 15, RATTATA
-	db 14, ZUBAT
-	db 15, RATICATE
+	db 23, KOFFING
+	db 24, KOFFING
+	db 25, KOFFING
+	db 15, CYNDAQUIL
+	db 24, QUILAVA
+	db 15, CHARMANDER
+	db 24, HOUNDOUR
+	db 23, HOUNDOUR
+	db 23, GRIMER
+	db 25, RATICATE
+	db 24, CHARMELEON
+	db 30, WEEZING
 	; day
-	db 13, RATTATA
-	db 14, KOFFING
-	db 15, RATTATA
-	db 14, ZUBAT
-	db 15, RATTATA
-	db 15, RATICATE
-	db 15, RATICATE
-	db 13, RATTATA
-	db 14, KOFFING
-	db 15, RATTATA
-	db 14, ZUBAT
-	db 15, RATICATE
+	db 23, KOFFING
+	db 24, KOFFING
+	db 25, KOFFING
+	db 15, CYNDAQUIL
+	db 24, QUILAVA
+	db 15, CHARMANDER
+	db 24, HOUNDOUR
+	db 23, HOUNDOUR
+	db 23, GRIMER
+	db 25, RATICATE
+	db 24, CHARMELEON
+	db 30, WEEZING
 	; nite
-	db 13, RATTATA
-	db 14, KOFFING
-	db 15, RATTATA
-	db 14, ZUBAT
-	db 15, RATTATA
-	db 15, RATICATE
-	db 15, RATICATE
-	db 13, RATTATA
-	db 14, KOFFING
-	db 15, RATTATA
-	db 14, ZUBAT
-	db 15, RATICATE
+	db 23, KOFFING
+	db 24, KOFFING
+	db 25, KOFFING
+	db 15, CYNDAQUIL
+	db 24, QUILAVA
+	db 15, CHARMANDER
+	db 24, HOUNDOUR
+	db 23, HOUNDOUR
+	db 23, GRIMER
+	db 25, RATICATE
+	db 24, CHARMELEON
+	db 30, WEEZING
 	end_grass_wildmons
 
 	def_grass_wildmons BURNED_TOWER_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 14, RATTATA
-	db 14, KOFFING
-	db 16, KOFFING
-	db 15, ZUBAT
-	db 12, KOFFING
-	db 14, RATTATA
-	db 14, KOFFING
-	db 16, KOFFING
-	db 15, ZUBAT
-	db 12, KOFFING
-	db 16, KOFFING
-	db 16, WEEZING
+	db 23, KOFFING
+	db 24, KOFFING
+	db 25, KOFFING
+	db 15, CYNDAQUIL
+	db 24, QUILAVA
+	db 15, CHARMANDER
+	db 24, HOUNDOUR
+	db 23, HOUNDOUR
+	db 23, GRIMER
+	db 25, RATICATE
+	db 24, CHARMELEON
+	db 30, WEEZING
 	; day
-	db 14, RATTATA
-	db 14, KOFFING
-	db 16, KOFFING
-	db 15, ZUBAT
-	db 12, KOFFING
-	db 14, RATTATA
-	db 14, KOFFING
-	db 16, KOFFING
-	db 15, ZUBAT
-	db 12, KOFFING
-	db 16, KOFFING
-	db 16, WEEZING
+	db 23, KOFFING
+	db 24, KOFFING
+	db 25, KOFFING
+	db 15, CYNDAQUIL
+	db 24, QUILAVA
+	db 15, CHARMANDER
+	db 24, HOUNDOUR
+	db 23, HOUNDOUR
+	db 23, GRIMER
+	db 25, RATICATE
+	db 24, CHARMELEON
+	db 30, WEEZING
 	; nite
-	db 14, RATTATA
-	db 14, KOFFING
-	db 16, KOFFING
-	db 15, ZUBAT
-	db 12, KOFFING
-	db 14, RATTATA
-	db 14, KOFFING
-	db 16, KOFFING
-	db 15, ZUBAT
-	db 12, KOFFING
-	db 16, KOFFING
-	db 16, WEEZING
+	db 23, KOFFING
+	db 24, KOFFING
+	db 25, KOFFING
+	db 15, CYNDAQUIL
+	db 24, QUILAVA
+	db 15, CHARMANDER
+	db 24, HOUNDOUR
+	db 23, HOUNDOUR
+	db 23, GRIMER
+	db 25, RATICATE
+	db 24, CHARMELEON
+	db 30, WEEZING
 	end_grass_wildmons
 
 	def_grass_wildmons NATIONAL_PARK
