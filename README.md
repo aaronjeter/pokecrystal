@@ -1,52 +1,118 @@
 # Pokémon Crystal [![Build Status][ci-badge]][ci]
 
-This is a disassembly of Pokémon Crystal.
+This is a fork of Pokémon Crystal, as dissassembled by Pret:
+https://github.com/pret/pokecrystal
 
-It builds the following ROMs:
+Featuring a number of improvments/changes as found here:
+https://github.com/pret/pokecrystal/wiki/Tutorials
 
-- Pokemon - Crystal Version (UE) (V1.0) [C][!].gbc `sha1: f4cd194bdee0d04ca4eac29e09b8e4e9d818c133`
-- Pokemon - Crystal Version (UE) (V1.1) [C][!].gbc `sha1: f2f52230b536214ef7c9924f483392993e226cfb`
-- Pokemon - Crystal Version (A) [C][!].gbc `sha1: a0fc810f1d4e124434f7be2c989ab5b5892ddf36`
-- CRYSTAL_ps3_010328d.bin `sha1: c60d57a24bbe8ecf7cba54ab3f90669f97bd330d`
-- CRYSTAL_ps3_us_revise_010710d.bin `sha1: 391ae86b1d5a26db712ffe6c28bbf2a1f804c3c4`
-- CGBBYTE1.784.patch `sha1: a25517f60ca0e887d39ec698aa56a0040532a4b3`
+Goals:
+  To create a hack for fun
 
-To set up the repository, see [INSTALL.md](INSTALL.md).
+  Create a better gen 2 experience:
+  
+  
+    All 251 Pokemon should be attainable
+    
+    All Pokemon should have functional movesets   
+    
+    Reduce HM constraints on party building
+    
+      HM moves should be desirable in battle
+      HM requirments should be less restrictive/annoying during travel
+      
+
+  Create a more challenging experience:  
+  
+    Implement a badge based level cap
+    Rebalance trainers with more powerful, varied, and interesting teams
+    Rebalance Gym leaders to be at the Level Cap for their area
+    Fix Kanto's level curve
+    
+
+  Create a more varied experience:
+  
+    Many pokemon types have changed to remove redundancy
+    Much more variety in teambuilding options
+    Rare spawns in each area
+    Drastically increased Shiny odds
+      Max Special dv = Shiny. Because, you know...they're special.
+      This works out to roughly 1/16
+      
+
+  Create a more interesting Pokemon League:
+  
+    Gyms should be a significant milestone
+    Gyms should be a relevant training method
+    Trainer Pokemon can have individual dvs, stat experience, and nicknames
+
+  
+  
+
+Changes Implemented:  
+
+  Types:
+  
+    Fairy type added
+    Ghost and Fairy set to Special
+    Dark and Dragon set to Physical
+    
+
+  Moves:
+  
+    Many Moves rebalanced to fit a 4 tier power budget scheme
+      Moves within each tier should have a similar power budget, with a baseline power level modified to account for effects and accuracy
+      Tiers being
+        1: Starter level moves (the tackle tier)
+            Generally learned levels 1-15, with a base 40 power
+        2: Early level moves (the stomp tier)
+          Generally learned levels 16-30, base power 65
+        3: Mid game moves (the Ice Beam tier)
+          Generally learned levels 31-50, base power 85
+        4: Late game moves (the Blizzard tier)
+          Generally learned level 50+, base power 100
+    Some move types have been changed to add variety, and to support the new Fairy typing 
+    Several new moves have been added
+    TMs are now reusable
+      
+
+  Pokemon:
+  
+    Starter Pokemon have been changed
+    Many Pokemon types updated
+    Many Pokemon evolution methods updated
+      Trade evolutions replaced with appropriate levels
+      Stone evolutions now optional; Pokemon will eventually evolve on their own
+    All Pokemon movesets improved
+      All Pokemon should now learn multiple moves of their type by reasonable level milestones
+      
+      
+  Wild:
+  
+    Wild Pokemon spawns have been increased in variety
+      12 encounter slots per Route
+      1 of these is a rare 1% spawn, usually something powerful and near the level cap
+      
+
+  Gyms:
+  
+    Johto Gym leaders rebalanced 
+    Johto Gym leaders and trainers (through Bugsy atm) are available for rematch
+    Johto Gym Guides heal your party
+    
+
+  Trainers:
+  
+    Trainers can nickname their pokemon, as well as set custom dvs and Stat Xp
 
 
-## See also
+TODO:
 
-- [**FAQ**](FAQ.md)
-- [**Documentation**][docs]
-- [**Wiki**][wiki] (includes [tutorials][tutorials])
-- [**Symbols**][symbols]
-- **Discord:** [pret][discord]
-- **IRC:** [libera#pret][irc]
-
-Other disassembly projects:
-
-- [**Pokémon Red/Blue**][pokered]
-- [**Pokémon Yellow**][pokeyellow]
-- [**Pokémon Gold/Silver**][pokegold]
-- [**Pokémon Pinball**][pokepinball]
-- [**Pokémon TCG**][poketcg]
-- [**Pokémon Ruby**][pokeruby]
-- [**Pokémon FireRed**][pokefirered]
-- [**Pokémon Emerald**][pokeemerald]
-
-[pokered]: https://github.com/pret/pokered
-[pokeyellow]: https://github.com/pret/pokeyellow
-[pokegold]: https://github.com/pret/pokegold
-[pokepinball]: https://github.com/pret/pokepinball
-[poketcg]: https://github.com/pret/poketcg
-[pokeruby]: https://github.com/pret/pokeruby
-[pokefirered]: https://github.com/pret/pokefirered
-[pokeemerald]: https://github.com/pret/pokeemerald
-[docs]: https://pret.github.io/pokecrystal/
-[wiki]: https://github.com/pret/pokecrystal/wiki
-[tutorials]: https://github.com/pret/pokecrystal/wiki/Tutorials
-[symbols]: https://github.com/pret/pokecrystal/tree/symbols
-[discord]: https://discord.gg/d5dubZ3
-[irc]: https://web.libera.chat/?#pret
-[ci]: https://github.com/pret/pokecrystal/actions
-[ci-badge]: https://github.com/pret/pokecrystal/actions/workflows/main.yml/badge.svg
+  Find a way around the size limit on evo_attacks.asm, allowing for more levelup moves per Pokemon
+  Allow rebattling of Gymleaders after Bugsy
+  Set the rest of Gym guide's to heal party
+  Settle on final starter options
+  Implement some sort of HM workaround
+  Make Exp Share available earlier (potentially from Mr Pokemon)
+  Find thematically appropriate places for each pokemon to appear
+  
