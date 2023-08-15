@@ -76,7 +76,7 @@ GoldenrodGymWhitneyScript:
 .GotAttract:
 	writetext WhitneyRematchText
 	winlosstext WhitneyGoodCryText, 0
-	loadtrainer BUGSY, BUGSY1
+	loadtrainer WHITNEY, WHITNEY1
 	startbattle
 	reloadmapafterbattle
 .NoRoomForAttract:

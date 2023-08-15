@@ -370,6 +370,7 @@ PlacePartyMonEvoStoneCompatibility:
 	ld hl, EvosAttacksPointers
 	add hl, de
 	add hl, de
+	add hl, de
 	call .DetermineCompatibility
 	pop hl
 	call PlaceString
@@ -386,6 +387,10 @@ PlacePartyMonEvoStoneCompatibility:
 
 .DetermineCompatibility:
 ; BUG: Only the first three evolution entries can have Stone compatibility reported correctly (see docs/bugs_and_glitches.md)
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarByte
+	ld [wEvosAttacksBank], a
+	inc hl
 	ld de, wStringBuffer1
 	ld a, BANK(EvosAttacksPointers)
 	ld bc, 2
@@ -395,7 +400,7 @@ PlacePartyMonEvoStoneCompatibility:
 	ld h, [hl]
 	ld l, a
 	ld de, wStringBuffer1
-	ld a, BANK("Evolutions and Attacks")
+	ld a, [wEvosAttacksBank]
 	ld bc, 10
 	call FarCopyBytes
 	ld hl, wStringBuffer1

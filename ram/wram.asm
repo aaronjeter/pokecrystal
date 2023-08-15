@@ -2796,7 +2796,8 @@ ENDU
 
 wOtherTrainerType:: db
 wTrainerGroupBank:: db
-	ds 2
+wEvosAttacksBank:: db
+	ds 1
 
 wd430:: ; mobile
 wBattleAction:: db
