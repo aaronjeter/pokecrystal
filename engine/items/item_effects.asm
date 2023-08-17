@@ -902,12 +902,17 @@ MoonBallMultiplier:
 	ld hl, EvosAttacksPointers
 	add hl, bc
 	add hl, bc
+	add hl, bc
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarByte
+	ld [wEvosAttacksBank], a
+	inc hl
 	ld a, BANK(EvosAttacksPointers)
 	call GetFarWord
 	pop bc
 
 	push bc
-	ld a, BANK("Evolutions and Attacks")
+	ld a, [wEvosAttacksBank]
 	call GetFarByte
 	cp EVOLVE_ITEM
 	pop bc
@@ -919,7 +924,7 @@ MoonBallMultiplier:
 
 ; BUG: Moon Ball does not boost catch rate (see docs/bugs_and_glitches.md)
 	push bc
-	ld a, BANK("Evolutions and Attacks")
+	ld a, [wEvosAttacksBank]
 	call GetFarByte
 	cp MOON_STONE_RED ; BURN_HEAL
 	pop bc
