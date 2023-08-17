@@ -417,8 +417,8 @@ LearnLevelMoves:
 	ld h, [hl]
 	ld l, a
 
-	ld a, [wEvosAttacksBank]
 .skip_evos
+	ld a, [wEvosAttacksBank]
 	call GetFarByte
 	inc hl
 	and a
@@ -494,8 +494,8 @@ FillMoves:
 	ld h, [hl]
 	ld l, a
 	
-	ld a, [wEvosAttacksBank]
 .GoToAttacks:
+	ld a, [wEvosAttacksBank]
 	call GetFarByte
 	inc hl
 	and a
