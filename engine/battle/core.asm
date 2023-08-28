@@ -6116,8 +6116,8 @@ LoadEnemyMon:
 	cp BATTLETYPE_FORCESHINY
 	jr nz, .GenerateDVs
 
-	ld b, ATKDEFDV_SHINY ; $ea
-	ld c, SPDSPCDV_SHINY ; $aa
+	ld b, $ff ; Max atk/def dv
+	ld c, $ff ; Max spd/spec dv
 	jr .UpdateDVs
 
 .GenerateDVs:

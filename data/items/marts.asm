@@ -43,6 +43,7 @@ MartCherrygrove:
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
+	db EXP_SHARE
 	db -1 ; end
 
 MartCherrygroveDex:
@@ -52,6 +53,7 @@ MartCherrygroveDex:
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
+	db EXP_SHARE
 	db -1 ; end
 
 MartViolet:
@@ -66,6 +68,7 @@ MartViolet:
 	db X_ATTACK
 	db X_SPEED
 	db FLOWER_MAIL
+	db EXP_SHARE
 	db -1 ; end
 
 MartAzalea:
@@ -79,6 +82,7 @@ MartAzalea:
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db FLOWER_MAIL
+	db EXP_SHARE
 	db -1 ; end
 
 MartCianwood:
@@ -88,6 +92,7 @@ MartCianwood:
 	db HYPER_POTION
 	db FULL_HEAL
 	db REVIVE
+	db EXP_SHARE
 	db -1 ; end
 
 MartGoldenrod2F1:
@@ -176,6 +181,7 @@ MartOlivine:
 	db ICE_HEAL
 	db SUPER_REPEL
 	db SURF_MAIL
+	db EXP_SHARE
 	db -1 ; end
 
 MartEcruteak:
@@ -190,6 +196,7 @@ MartEcruteak:
 	db BURN_HEAL
 	db ICE_HEAL
 	db REVIVE
+	db EXP_SHARE
 	db -1 ; end
 
 MartMahogany1:
@@ -198,6 +205,7 @@ MartMahogany1:
 	db SLOWPOKETAIL
 	db POKE_BALL
 	db POTION
+	db EXP_SHARE
 	db -1 ; end
 
 MartMahogany2:
@@ -224,6 +232,7 @@ MartBlackthorn:
 	db MAX_REPEL
 	db X_DEFEND
 	db X_ATTACK
+	db EXP_SHARE
 	db -1 ; end
 
 MartViridian:

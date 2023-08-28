@@ -76,7 +76,7 @@ GoldenrodGymWhitneyScript:
 .GotAttract:
 	writetext WhitneyRematchText
 	winlosstext WhitneyGoodCryText, 0
-	loadtrainer BUGSY, BUGSY1
+	loadtrainer WHITNEY, WHITNEY1
 	startbattle
 	reloadmapafterbattle
 .NoRoomForAttract:
@@ -149,11 +149,11 @@ TrainerBeautyVictoria:
 	end
 
 TrainerBeautySamantha:
-	trainer BEAUTY, SAMANTHA, EVENT_BEAT_BEAUTY_SAMANTHA, BeautySamanthaSeenText, SAMANTHA, 0, .Script
+	trainer BEAUTY, SAMANTHA, EVENT_BEAT_BEAUTY_SAMANTHA, BeautySamanthaSeenText, BeautySamanthaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	winlosstext SAMANTHA, 0
+	winlosstext BeautySamanthaBeatenText, 0
 	loadtrainer BEAUTY, SAMANTHA
 	startbattle
 	reloadmapafterbattle

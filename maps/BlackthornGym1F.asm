@@ -95,6 +95,10 @@ TrainerCooltrainermPaul:
 
 .Script:
 	endifjustbattled
+	winlosstext CooltrainermPaulBeatenText, 0
+	loadtrainer COOLTRAINERM, PAUL
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext CooltrainermPaulAfterBattleText
 	waitbutton
@@ -106,6 +110,10 @@ TrainerCooltrainermMike:
 
 .Script:
 	endifjustbattled
+	winlosstext CooltrainermMikeBeatenText, 0
+	loadtrainer COOLTRAINERM, MIKE
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext CooltrainermMikeAfterBattleText
 	waitbutton
@@ -117,6 +125,10 @@ TrainerCooltrainerfLola:
 
 .Script:
 	endifjustbattled
+	winlosstext CooltrainerfLolaBeatenText, 0
+	loadtrainer COOLTRAINERF, LOLA
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext CooltrainerfLolaAfterBattleText
 	waitbutton
@@ -131,12 +143,28 @@ BlackthornGymGuideScript:
 	writetext BlackthornGymGuideText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 .BlackthornGymGuideWinScript:
 	writetext BlackthornGymGuideWinText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 BlackthornGymStatue:

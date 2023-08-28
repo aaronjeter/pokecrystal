@@ -1,6 +1,6 @@
 	db WIGGLYTUFF ; 040
 
-	db 140,  70,  45,  45,  75,  50
+	db 150,  75,  70,  45,  75,  60
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, FAIRY ; type
