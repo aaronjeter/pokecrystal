@@ -1,6 +1,6 @@
 	db BUTTERFREE ; 012
 
-	db  60,  45,  50,  70,  80,  80
+	db  65,  45,  55,  85,  90,  80
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, PSYCHIC_TYPE ; type

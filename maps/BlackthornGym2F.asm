@@ -61,6 +61,10 @@ TrainerCooltrainermCody:
 
 .Script:
 	endifjustbattled
+	winlosstext CooltrainermCodyBeatenText, 0
+	loadtrainer COOLTRAINERM, CODY
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext CooltrainermCodyAfterBattleText
 	waitbutton
@@ -72,6 +76,10 @@ TrainerCooltrainerfFran:
 
 .Script:
 	endifjustbattled
+	winlosstext CooltrainerfFranBeatenText, 0
+	loadtrainer COOLTRAINERF, FRAN
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext CooltrainerfFranAfterBattleText
 	waitbutton

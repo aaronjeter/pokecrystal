@@ -42,7 +42,11 @@ OlivineGymJasmineScript:
 	end
 
 .GotIronTail:
-	writetext Jasmine_GoodLuck
+	writetext Jasmine_GoodLuck	
+	winlosstext Jasmine_GoodLuck, 0
+	loadtrainer JASMINE, JASMINE1
+	startbattle
+	reloadmapafterbattle
 	waitbutton
 .NoRoomForIronTail:
 	closetext
@@ -69,6 +73,14 @@ OlivineGymGuideScript:
 	writetext OlivineGymGuideText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 .OlivineGymGuideWinScript:
@@ -76,6 +88,14 @@ OlivineGymGuideScript:
 	writetext OlivineGymGuideWinText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 .OlivineGymGuidePreScript:

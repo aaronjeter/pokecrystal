@@ -52,8 +52,11 @@ MahoganyGymPryceScript:
 	end
 
 PryceScript_Defeat:
-	writetext PryceText_CherishYourPokemon
-	waitbutton
+	winlosstext PryceText_CherishYourPokemon, 0
+	loadtrainer PRYCE, PRYCE1
+	startbattle
+	reloadmapafterbattle
+	
 MahoganyGym_NoRoomForIcyWind:
 	closetext
 	end
@@ -74,6 +77,10 @@ TrainerSkierRoxanne:
 
 .Script:
 	endifjustbattled
+	winlosstext SkierRoxanneBeatenText, 0
+	loadtrainer SKIER, ROXANNE
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext SkierRoxanneAfterBattleText
 	waitbutton
@@ -85,6 +92,10 @@ TrainerSkierClarissa:
 
 .Script:
 	endifjustbattled
+	winlosstext SkierClarissaBeatenText, 0
+	loadtrainer SKIER, CLARISSA
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext SkierClarissaAfterBattleText
 	waitbutton
@@ -96,6 +107,10 @@ TrainerBoarderRonald:
 
 .Script:
 	endifjustbattled
+	winlosstext BoarderRonaldBeatenText, 0
+	loadtrainer BOARDER, RONALD
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext BoarderRonaldAfterBattleText
 	waitbutton
@@ -107,6 +122,10 @@ TrainerBoarderBrad:
 
 .Script:
 	endifjustbattled
+	winlosstext BoarderBradBeatenText, 0
+	loadtrainer BOARDER, BRAD
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext BoarderBradAfterBattleText
 	waitbutton
@@ -118,6 +137,10 @@ TrainerBoarderDouglas:
 
 .Script:
 	endifjustbattled
+	winlosstext BoarderDouglasBeatenText, 0
+	loadtrainer BOARDER, DOUGLAS
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext BoarderDouglasAfterBattleText
 	waitbutton
@@ -132,12 +155,28 @@ MahoganyGymGuideScript:
 	writetext MahoganyGymGuideText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 .MahoganyGymGuideWinScript:
 	writetext MahoganyGymGuideWinText
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 MahoganyGymStatue:

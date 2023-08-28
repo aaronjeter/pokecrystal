@@ -47,12 +47,12 @@ CianwoodGymChuckScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_STORMBADGE
+	loadmem wLevelCap, 40
 	readvar VAR_BADGES
 	scall CianwoodGymActivateRockets
 .FightDone:
 	checkevent EVENT_GOT_TM01_DYNAMICPUNCH
 	iftrue .AlreadyGotTM
-	loadmem wLevelCap, 40
 	setevent EVENT_BEAT_BLACKBELT_YOSHI
 	setevent EVENT_BEAT_BLACKBELT_LAO
 	setevent EVENT_BEAT_BLACKBELT_NOB
@@ -98,6 +98,10 @@ TrainerBlackbeltYoshi:
 
 .Script:
 	endifjustbattled
+	winlosstext BlackbeltYoshiBeatenText, 0
+	loadtrainer BLACKBELT_T, YOSHI
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext BlackbeltYoshiAfterText
 	waitbutton
@@ -109,6 +113,10 @@ TrainerBlackbeltLao:
 
 .Script:
 	endifjustbattled
+	winlosstext BlackbeltLaoBeatenText, 0
+	loadtrainer BLACKBELT_T, LAO
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext BlackbeltLaoAfterText
 	waitbutton
@@ -120,6 +128,10 @@ TrainerBlackbeltNob:
 
 .Script:
 	endifjustbattled
+	winlosstext BlackbeltNobBeatenText, 0
+	loadtrainer BLACKBELT_T, NOB
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext BlackbeltNobAfterText
 	waitbutton
@@ -131,6 +143,10 @@ TrainerBlackbeltLung:
 
 .Script:
 	endifjustbattled
+	winlosstext BlackbeltLungBeatenText, 0
+	loadtrainer BLACKBELT_T, LUNG
+	startbattle
+	reloadmapafterbattle
 	opentext
 	writetext BlackbeltLungAfterText
 	waitbutton

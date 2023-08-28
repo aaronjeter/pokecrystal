@@ -316,8 +316,8 @@ GuillotineDescription:
 	next "pincer attack.@"
 
 RazorWindDescription:
-	db   "1st turn: Prepare"
-	next "2nd turn: Attack@"
+	db   "An attack that may"
+	next "lower DEFENSE.@"
 
 SwordsDanceDescription:
 	db   "A dance that in-"
