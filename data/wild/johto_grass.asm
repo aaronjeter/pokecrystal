@@ -1854,44 +1854,44 @@ JohtoGrassWildMons:
 	def_grass_wildmons DARK_CAVE_BLACKTHORN_ENTRANCE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 23, GEODUDE
-	db 23, ZUBAT
-	db 25, GRAVELER
-	db 25, URSARING
-	db 20, TEDDIURSA
-	db 23, GEODUDE
-	db 23, ZUBAT
-	db 25, GRAVELER
-	db 25, URSARING
-	db 20, TEDDIURSA
-	db 23, GOLBAT
-	db 23, GOLBAT
+	db 40, GEODUDE
+	db 41, GRAVELER
+	db 45, GOLEM
+	db 40, ZUBAT
+	db 42, GOLBAT	
+	db 45, URSARING
+	db 47, URSARING		
+	db 25, DUNSPARCE
+	db 40, DUNSPARCE
+	db 43, WOBBUFFET
+	db 45, WOBBUFFET
+	db 60, WOBBUFFET
 	; day
-	db 23, GEODUDE
-	db 23, ZUBAT
-	db 25, GRAVELER
-	db 25, URSARING
-	db 30, URSARING
-	db 23, GEODUDE
-	db 23, ZUBAT
-	db 25, GRAVELER
-	db 25, URSARING
-	db 30, URSARING
-	db 23, GOLBAT
-	db 23, GOLBAT
+	db 40, GEODUDE
+	db 41, GRAVELER
+	db 45, GOLEM
+	db 40, ZUBAT
+	db 42, GOLBAT	
+	db 45, URSARING
+	db 47, URSARING		
+	db 25, DUNSPARCE
+	db 40, DUNSPARCE
+	db 43, WOBBUFFET
+	db 45, WOBBUFFET
+	db 60, WOBBUFFET
 	; nite
-	db 23, GEODUDE
-	db 23, ZUBAT
-	db 25, GRAVELER
-	db 20, WOBBUFFET
-	db 25, WOBBUFFET
-	db 23, GEODUDE
-	db 23, ZUBAT
-	db 25, GRAVELER
-	db 20, WOBBUFFET
-	db 25, WOBBUFFET
-	db 23, GOLBAT
-	db 23, GOLBAT
+	db 40, GEODUDE
+	db 41, GRAVELER
+	db 45, GOLEM
+	db 40, ZUBAT
+	db 42, GOLBAT	
+	db 45, URSARING
+	db 47, URSARING		
+	db 25, DUNSPARCE
+	db 40, DUNSPARCE
+	db 43, WOBBUFFET
+	db 45, WOBBUFFET
+	db 60, WOBBUFFET
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_29

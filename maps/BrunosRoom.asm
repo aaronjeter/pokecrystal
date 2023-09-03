@@ -61,6 +61,14 @@ BrunoScript_Battle:
 	changeblock 4, 2, $16 ; open door
 	reloadmappart
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	setevent EVENT_BRUNOS_ROOM_EXIT_OPEN
 	waitsfx
 	end
