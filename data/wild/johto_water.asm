@@ -116,9 +116,9 @@ JohtoWaterWildMons:
 
 	def_water_wildmons DRAGONS_DEN_B1F
 	db 2 percent ; encounter rate
-	db 15, MAGIKARP
-	db 10, MAGIKARP
-	db 10, DRATINI
+	db 25, DRATINI
+	db 35, DRAGONAIR
+	db 40, DRAGONAIR
 	end_water_wildmons
 
 	def_water_wildmons OLIVINE_PORT
@@ -200,9 +200,9 @@ JohtoWaterWildMons:
 
 	def_water_wildmons ROUTE_45
 	db 2 percent ; encounter rate
-	db 20, MAGIKARP
-	db 15, MAGIKARP
-	db 5, MAGIKARP
+	db 25, MAGIKARP
+	db 35, SEADRA
+	db 40, SEAKING
 	end_water_wildmons
 
 	def_water_wildmons NEW_BARK_TOWN
