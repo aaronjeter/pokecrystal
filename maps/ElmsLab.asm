@@ -409,7 +409,7 @@ ElmGiveTicketScript:
 	promptbutton
 	verbosegiveitem S_S_TICKET
 	setevent EVENT_GOT_SS_TICKET_FROM_ELM
-	loadmem wLevelCap, 75
+	loadmem wLevelCap, 70
 	writetext ElmGiveTicketText2
 	waitbutton
 	closetext
