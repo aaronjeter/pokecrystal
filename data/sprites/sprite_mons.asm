@@ -36,4 +36,10 @@ SpriteMons:
 	db GYARADOS
 	db LUGIA
 	db HO_OH
+	db MURKROW
+	db ELECTRODE
+	db GASTLY
+	db HAUNTER
+	db CHANSEY
+	db MILTANK
 	assert_table_length NUM_POKEMON_SPRITES
