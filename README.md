@@ -97,7 +97,7 @@ Changes Implemented:
   Gyms:
   
     Johto Gym leaders rebalanced 
-    Johto Gym leaders and trainers (through Bugsy atm) are available for rematch
+    Johto Gym leaders and trainers are available for rematch
     Johto Gym Guides heal your party
     
 
@@ -105,14 +105,15 @@ Changes Implemented:
   
     Trainers can nickname their pokemon, as well as set custom dvs and Stat Xp
 
+  HMs:
+
+    Pokemon can use HM moves without learning them, so long as they can learn the move, you have the HM, and that you have any required badges
+    HM moves have been rebalanced to be of similar power level to Surf in battle.
+
 
 TODO:
 
   Find a way around the size limit on evo_attacks.asm, allowing for more levelup moves per Pokemon
-  Allow rebattling of Gymleaders after Bugsy
-  Set the rest of Gym guide's to heal party
   Settle on final starter options
-  Implement some sort of HM workaround
-  Make Exp Share available earlier (potentially from Mr Pokemon)
   Find thematically appropriate places for each pokemon to appear
   
