@@ -74,6 +74,11 @@ Changes Implemented:
     Some move types have been changed to add variety, and to support the new Fairy typing 
     Several new moves have been added
     TMs are now reusable
+
+
+  Overworld:
+
+    HM Moves are no longer required to be taught. If a Pokemon can learn the move, it can use it (as long as the HM is aqquired and any appropriate badges are owned)
       
 
   Pokemon:
@@ -84,7 +89,7 @@ Changes Implemented:
       Trade evolutions replaced with appropriate levels
       Stone evolutions now optional; Pokemon will eventually evolve on their own
     All Pokemon movesets improved
-      All Pokemon should now learn multiple moves of their type by reasonable level milestones
+      All Pokemon should now learn multiple moves of their types by reasonable level milestones
       
       
   Wild:
@@ -92,12 +97,15 @@ Changes Implemented:
     Wild Pokemon spawns have been increased in variety
       12 encounter slots per Route
       1 of these is a rare 1% spawn, usually something powerful and near the level cap
+    Wilderness routes will now have battleable wild pokemon sprites
+    Encounter rates in cave areas have been drastically reduced
       
 
   Gyms:
-  
+
+    A level cap has been introduced, scaling with the numer of badges obtained
     Johto Gym leaders rebalanced 
-    Johto Gym leaders and trainers (through Bugsy atm) are available for rematch
+    Johto Gym leaders and gym trainers are available for rematch
     Johto Gym Guides heal your party
     
 
@@ -108,11 +116,13 @@ Changes Implemented:
 
 TODO:
 
-  Find a way around the size limit on evo_attacks.asm, allowing for more levelup moves per Pokemon
-  Allow rebattling of Gymleaders after Bugsy
-  Set the rest of Gym guide's to heal party
-  Settle on final starter options
-  Implement some sort of HM workaround
-  Make Exp Share available earlier (potentially from Mr Pokemon)
-  Find thematically appropriate places for each pokemon to appear
+    Find a way around the size limit on evo_attacks.asm, allowing for more levelup moves per Pokemon
+    Settle on final starter options
+    Find thematically appropriate places for each pokemon to appear
+    Add a new Rival using the opposite gender player character sprite
+    Add wild overworld pokemon to various routes and caves
+    Make sure that all 251 Pokemon are obtainable through some means
+    Rebalance Kanto trainers and wild pokemon spawns
+    Implement the Johto Games event between 8 badges and Elite 4
+    Implement the Elite 16 event after collecting all 16 badges
   
