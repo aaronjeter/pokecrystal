@@ -161,8 +161,8 @@ CyndaquilPokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic CELEBI
-	cry CELEBI
+	pokepic DELIBIRD
+	cry DELIBIRD
 	waitbutton
 	closepokepic
 	opentext
@@ -174,12 +174,12 @@ CyndaquilPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, CELEBI
+	getmonname STRING_BUFFER_3, DELIBIRD
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CELEBI, 5, BERRY
+	givepoke DELIBIRD, 5, BERRY
 	closetext
 	readvar VAR_FACING
 	ifequal RIGHT, ElmDirectionsScript
@@ -191,8 +191,8 @@ TotodilePokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic LARVITAR
-	cry LARVITAR
+	pokepic DELIBIRD
+	cry DELIBIRD
 	waitbutton
 	closepokepic
 	opentext
@@ -204,12 +204,12 @@ TotodilePokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, LARVITAR
+	getmonname STRING_BUFFER_3, DELIBIRD
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke LARVITAR, 5, BERRY
+	givepoke DELIBIRD, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -219,8 +219,8 @@ ChikoritaPokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic MEW
-	cry MEW
+	pokepic DELIBIRD
+	cry DELIBIRD
 	waitbutton
 	closepokepic
 	opentext
@@ -232,12 +232,12 @@ ChikoritaPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, MEW
+	getmonname STRING_BUFFER_3, DELIBIRD
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke MEW, 5, BERRY
+	givepoke DELIBIRD, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -341,7 +341,7 @@ ElmAfterTheftScript:
 	setevent EVENT_ROUTE_30_BATTLE
 	writetext ElmAfterTheftText6
 	waitbutton
-	closetext
+	closetext	
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS
 	end
 
@@ -471,7 +471,7 @@ AideScript_GivePotion:
 	opentext
 	writetext AideText_GiveYouPotion
 	promptbutton
-	verbosegiveitem POTION
+	giveitem POKE_BALL, 25
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext
@@ -498,7 +498,7 @@ AideScript_GiveYouBalls:
 	promptbutton
 	getitemname STRING_BUFFER_4, POKE_BALL
 	scall AideScript_ReceiveTheBalls
-	giveitem POKE_BALL, 5
+	giveitem EXP_SHARE
 	writetext AideText_ExplainBalls
 	promptbutton
 	itemnotify
@@ -855,20 +855,20 @@ LabWhereGoingText:
 
 TakeCyndaquilText:
 	text "ELM: You'll take"
-	line "CELEBI, the"
-	cont "GRASS FAIRY?"
+	line "DELIBIRD, the"
+	cont "ICE Bird?"
 	done
 
 TakeTotodileText:
 	text "ELM: So, you like"
-	line "LARVITAR, the"
-	cont "ROCK DARK #MON?"
+	line "DELIBIRD, "
+	cont "Little Santa?"
 	done
 
 TakeChikoritaText:	
 	text "ELM: Do you want"
-	line "MEW, the"
-	cont "PSYCHIC FAIRY?"
+	line "DELIBIRD, the"
+	cont "Delivery bird?"
 	done
 
 DidntChooseStarterText:

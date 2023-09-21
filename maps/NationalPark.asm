@@ -13,6 +13,8 @@
 	const NATIONALPARK_POKE_BALL1
 	const NATIONALPARK_GAMEBOY_KID
 	const NATIONALPARK_POKE_BALL2
+	const NATIONALPARK_SCYTHER
+	const NATIONALPARK_YANMA
 
 NationalPark_MapScripts:
 	def_scene_scripts
@@ -286,6 +288,23 @@ TrainerLassKrise:
 	waitbutton
 	closetext
 	end
+	
+NationalParkScyther:
+	cry SCYTHER
+	loadwildmon SCYTHER, 30
+	loadvar VAR_BATTLETYPE, BATTLETYPE_BOSS
+	startbattle
+	reloadmapafterbattle
+	disappear NATIONALPARK_SCYTHER
+	end
+	
+NationalParkYanma:
+	cry YANMA
+	loadwildmon YANMA, 20
+	startbattle
+	reloadmapafterbattle
+	disappear NATIONALPARK_YANMA
+	end
 
 NationalParkRelaxationSquareSign:
 	jumptext NationalParkRelaxationSquareText
@@ -543,3 +562,6 @@ NationalPark_MapEvents:
 	object_event 35, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NationalParkParlyzHeal, EVENT_NATIONAL_PARK_PARLYZ_HEAL
 	object_event 26,  6, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NationalParkGameboyKidScript, -1
 	object_event  1, 43, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NationalParkTMDig, EVENT_NATIONAL_PARK_TM_DIG
+	object_event  0, 43, SPRITE_SCYTHER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NationalParkScyther, -1
+	object_event 27, 15, SPRITE_YANMA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, NationalParkYanma, -1
+	

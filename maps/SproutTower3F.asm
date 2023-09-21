@@ -6,6 +6,7 @@
 	const SPROUTTOWER3F_POKE_BALL1
 	const SPROUTTOWER3F_POKE_BALL2
 	const SPROUTTOWER3F_RIVAL
+	const SPROUTTOWER3F_BELLSPROUT
 
 SproutTower3F_MapScripts:
 	def_scene_scripts
@@ -121,6 +122,15 @@ TrainerSageNeal:
 	writetext SageNealAfterBattleText
 	waitbutton
 	closetext
+	end
+	
+SproutTower3FBellsprout:
+	cry BELLSPROUT
+	loadwildmon BELLSPROUT, 15
+	loadvar VAR_BATTLETYPE, BATTLETYPE_BOSS
+	startbattle
+	reloadmapafterbattle
+	disappear SPROUTTOWER3F_BELLSPROUT
 	end
 
 SproutTower3FPainting:
@@ -352,3 +362,5 @@ SproutTower3F_MapEvents:
 	object_event  6, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FPotion, EVENT_SPROUT_TOWER_3F_POTION
 	object_event 14,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FEscapeRope, EVENT_SPROUT_TOWER_3F_ESCAPE_ROPE
 	object_event 10,  4, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_SPROUT_TOWER
+	object_event  5,  1, SPRITE_BELLSPROUT, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SproutTower3FBellsprout, -1
+	

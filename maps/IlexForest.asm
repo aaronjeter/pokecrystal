@@ -10,6 +10,11 @@
 	const ILEXFOREST_POKE_BALL2
 	const ILEXFOREST_POKE_BALL3
 	const ILEXFOREST_POKE_BALL4
+	const ILEXFOREST_BULBASAUR
+	const ILEXFOREST_LEDIAN
+	const ILEXFOREST_CHIKORITA
+	const ILEXFOREST_PSYDUCK
+	
 
 IlexForest_MapScripts:
 	def_scene_scripts
@@ -479,6 +484,39 @@ IlexForestShrineScript:
 	disappear ILEXFOREST_KURT
 .DidntCatchCelebi:
 	end
+	
+IlexForest_Bulbasaur:
+	cry BULBASAUR
+	loadwildmon BULBASAUR, 12
+	startbattle
+	reloadmapafterbattle
+	disappear ILEXFOREST_BULBASAUR
+	end
+	
+IlexForest_Ledian:
+	cry LEDIAN
+	loadwildmon LEDIAN, 25
+	loadvar VAR_BATTLETYPE, BATTLETYPE_BOSS
+	startbattle
+	reloadmapafterbattle
+	disappear ILEXFOREST_LEDIAN
+	end
+	
+IlexForest_Chikorita:
+	cry CHIKORITA
+	loadwildmon CHIKORITA, 12
+	startbattle
+	reloadmapafterbattle
+	disappear ILEXFOREST_CHIKORITA
+	end
+
+IlexForest_Psyduck:
+	cry PSYDUCK
+	loadwildmon PSYDUCK, 16
+	startbattle
+	reloadmapafterbattle
+	disappear ILEXFOREST_PSYDUCK
+	end
 
 MovementData_Farfetchd_Pos1_Pos2:
 	big_step UP
@@ -941,6 +979,8 @@ IlexForest_MapEvents:
 	warp_event  1,  5, ROUTE_34_ILEX_FOREST_GATE, 3
 	warp_event  3, 42, ILEX_FOREST_AZALEA_GATE, 1
 	warp_event  3, 43, ILEX_FOREST_AZALEA_GATE, 2
+	warp_event  0, 11, ILEX_FOREST_WEST, 1
+	warp_event  0, 10, ILEX_FOREST_WEST, 2
 
 	def_coord_events
 
@@ -963,3 +1003,7 @@ IlexForest_MapEvents:
 	object_event  9, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestXAttack, EVENT_ILEX_FOREST_X_ATTACK
 	object_event 17,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestAntidote, EVENT_ILEX_FOREST_ANTIDOTE
 	object_event 27,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestEther, EVENT_ILEX_FOREST_ETHER
+	object_event 23, 22, SPRITE_BULBASAUR, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForest_Bulbasaur, -1
+	object_event 26, 13, SPRITE_LEDIAN, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, IlexForest_Ledian, -1
+	object_event 20, 24, SPRITE_CHIKORITA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForest_Chikorita, -1
+	object_event  3,  9, SPRITE_PSYDUCK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, IlexForest_Psyduck, -1

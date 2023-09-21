@@ -540,7 +540,7 @@ JigglypuffEvosAttacks:
 	db 9, POUND
 	db 14, DISABLE
 	db 19, ROLLOUT
-	db 24, DOUBLESLAP
+	db 24, FAE_VOICE
 	db 29, REST
 	db 34, BODY_SLAM
 	db 0 ; no more level-up moves
@@ -551,6 +551,7 @@ WigglytuffEvosAttacks:
 	db 1, DISABLE
 	db 1, DEFENSE_CURL
 	db 1, POUND
+	db 29, REST
 	db 30, SWIFT
 	db 35, GLARE
 	db 40, SHADOW_BALL
@@ -1311,10 +1312,11 @@ OnixEvosAttacks:
 	db 1, SCREECH
 	db 10, BIND
 	db 14, ROCK_THROW
+	db 20, MAGNITUDE
 	db 23, HARDEN
 	db 27, RAGE
-	db 36, SANDSTORM
-	db 40, ROCK_SLIDE
+	db 30, SANDSTORM
+	db 35, ROCK_SLIDE
 	db 0 ; no more level-up moves
 
 DrowzeeEvosAttacks:
@@ -1731,9 +1733,10 @@ ScytherEvosAttacks:
 	db 6, FOCUS_ENERGY
 	db 12, BITE
 	db 18, FALSE_SWIPE
+	db 22, TWINEEDLE
 	db 24, AGILITY
 	db 30, SLASH
-	db 36, WING_ATTACK
+	db 36, RAZOR_WIND
 	db 42, SWORDS_DANCE
 	db 48, DOUBLE_TEAM
 	db 0 ; no more level-up moves
@@ -1800,7 +1803,7 @@ PinsirEvosAttacks:
 	db 36, PURSUIT
 	db 45, MEGAHORN
 	db 50, SUBMISSION
-	db 55, VICEGRIP
+	db 55, GUILLOTINE
 	db 60, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
@@ -2557,14 +2560,13 @@ XatuEvosAttacks:
 	db 10, NIGHT_SHADE
 	db 15, TELEPORT
 	db 25, PSYBEAM
-	db 30, WING_ATTACK
-	db 32, FAINT_ATTACK
-	db 36, SWIFT
-	db 40, PSYCHIC_M
-	db 45, DRILL_PECK
+	db 30, RAZOR_WIND
+	db 32, PSYCHIC_M
+	db 36, DRILL_PECK
+	db 40, PURSUIT
+	db 45, SKY_ATTACK
 	db 50, FUTURE_SIGHT
 	db 55, RECOVER
-	db 65, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 MareepEvosAttacks:
@@ -2979,12 +2981,12 @@ SteelixEvosAttacks:
 	db 14, ROCK_THROW
 	db 23, HARDEN
 	db 27, RAGE
-	db 32, MAGNITUDE
+	db 32, EARTHQUAKE
 	db 36, SANDSTORM
-	db 40, SLAM
+	db 40, VICEGRIP
 	db 42, CRUNCH
 	db 45, IRON_TAIL
-	db 50, EARTHQUAKE
+	db 50, FISSURE
 	db 55, THRASH
 	db 60, OUTRAGE
 	db 0 ; no more level-up moves
@@ -3041,12 +3043,12 @@ ScizorEvosAttacks:
 	db 12, PURSUIT
 	db 18, FALSE_SWIPE
 	db 24, AGILITY
-	db 30, METAL_CLAW
-	db 36, SLASH
-	db 40, CUT
-	db 42, SWORDS_DANCE
-	db 48, DOUBLE_TEAM
-	db 52, MEGAHORN
+	db 32, VICEGRIP
+	db 36, PURSUIT
+	db 40, RAZOR_WIND
+	db 44, MEGAHORN
+	db 48, SWORDS_DANCE
+	db 52, GUILLOTINE
 	db 0 ; no more level-up moves
 
 ShuckleEvosAttacks:

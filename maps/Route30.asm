@@ -10,6 +10,10 @@
 	const ROUTE30_FRUIT_TREE2
 	const ROUTE30_COOLTRAINER_F
 	const ROUTE30_POKE_BALL
+	const ROUTE30_PIDGEY
+	const ROUTE30_PICHU
+	const ROUTE30_POLIWAG1
+	const ROUTE30_POLIWAG2
 
 Route30_MapScripts:
 	def_scene_scripts
@@ -247,6 +251,38 @@ Route30FruitTree2:
 
 Route30HiddenPotion:
 	hiddenitem POTION, EVENT_ROUTE_30_HIDDEN_POTION
+	
+Route30_Pidgey:
+	cry PIDGEY
+	loadwildmon PIDGEY, 5
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE30_PIDGEY
+	end
+	
+Route30_Pichu:
+	cry PICHU
+	loadwildmon PICHU, 3
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE30_PICHU
+	end
+	
+Route30_Poliwag1:
+	cry POLIWAG
+	loadwildmon POLIWAG, 4
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE30_POLIWAG1
+	end
+	
+Route30_Poliwag2:
+	cry POLIWAG
+	loadwildmon POLIWAG, 6
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE30_POLIWAG2
+	end
 
 Route30_JoeysRattataAttacksMovement:
 	fix_facing
@@ -258,7 +294,8 @@ Route30_MikeysRattataAttacksMovement:
 	fix_facing
 	big_step DOWN
 	big_step UP
-	step_end
+	step_end	
+
 
 Text_UseTackle:
 	text "Go, RATTATA!"
@@ -432,3 +469,7 @@ Route30_MapEvents:
 	object_event 11,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30FruitTree2, -1
 	object_event  2, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30CooltrainerFScript, -1
 	object_event  8, 35, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route30Antidote, EVENT_ROUTE_30_ANTIDOTE
+	object_event 11, 10, SPRITE_PIDGEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route30_Pidgey, -1
+	object_event 10,  4, SPRITE_PICHU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route30_Pichu, -1
+	object_event 14, 35, SPRITE_POLIWAG, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route30_Poliwag1, -1
+	object_event 15, 38, SPRITE_POLIWAG, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route30_Poliwag2, -1

@@ -6,6 +6,8 @@
 	const ROUTE37_SUNNY
 	const ROUTE37_FRUIT_TREE2
 	const ROUTE37_FRUIT_TREE3
+	const ROUTE27_GIRAFARIG1
+	const ROUTE27_GIRAFARIG2
 
 Route37_MapScripts:
 	def_scene_scripts
@@ -113,6 +115,22 @@ Route37FruitTree3:
 
 Route37HiddenEther:
 	hiddenitem ETHER, EVENT_ROUTE_37_HIDDEN_ETHER
+	
+Route37Girafarig1:
+	cry GIRAFARIG
+	loadwildmon GIRAFARIG, 25
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE27_GIRAFARIG1
+	end
+	
+Route37Girafarig2:
+	cry GIRAFARIG
+	loadwildmon GIRAFARIG, 27
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE27_GIRAFARIG2
+	end
 
 TwinsAnnandanne1SeenText:
 	text "ANN: ANNE and I"
@@ -254,3 +272,6 @@ Route37_MapEvents:
 	object_event 16,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SunnyScript, EVENT_ROUTE_37_SUNNY_OF_SUNDAY
 	object_event 16,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree2, -1
 	object_event 15,  7, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree3, -1
+	object_event 17,  6, SPRITE_GIRAFARIG, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route37Girafarig1, -1
+	object_event 14,  5, SPRITE_GIRAFARIG, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route37Girafarig2, -1
+	

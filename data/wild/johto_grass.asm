@@ -2032,7 +2032,7 @@ JohtoGrassWildMons:
 	db 10, SPINARAK
 	db 11, MAREEP
 	db 12, PIDGEY
-	db 9, HOPPIP
+	db 9,  HOPPIP
 	db 10, WOOPER
 	db 11, WOOPER
 	db 11, MARILL
@@ -2058,7 +2058,7 @@ JohtoGrassWildMons:
 	db 11, SPINARAK
 	db 11, MAREEP
 	db 12, HOOTHOOT
-	db 7, HOPPIP
+	db 7,  HOPPIP
 	db 10, WOOPER
 	db 11, WOOPER
 	db 11, MARILL
@@ -2079,7 +2079,7 @@ JohtoGrassWildMons:
 	db 11, ZUBAT
 	db 12, ZUBAT
 	db 11, HOPPIP
-	db 7, CLEFFA
+	db 7,  CLEFFA
 	db 20, FEAROW
 	; day
 	db 12, RATTATA
@@ -2092,7 +2092,7 @@ JohtoGrassWildMons:
 	db 10, ZUBAT
 	db 11, HOPPIP
 	db 12, HOPPIP
-	db 7, CLEFFA
+	db 7,  CLEFFA
 	db 20, FEAROW
 	; nite
 	db 12, RATTATA
@@ -2104,7 +2104,7 @@ JohtoGrassWildMons:
 	db 11, ZUBAT
 	db 12, ZUBAT
 	db 13, ZUBAT
-	db 9, CLEFFA
+	db 9,  CLEFFA
 	db 11, CLEFFA
 	db 20, NOCTOWL
 	end_grass_wildmons
@@ -2550,7 +2550,7 @@ JohtoGrassWildMons:
 	db 2, RATTATA
 	db 2, SWINUB
 	db 3, SANDSHREW
-	db 3, PHANPY
+	db 5, SANDSHREW
 	db 4, PHANPY
 	db 5, PHANPY
 	db 7, DELIBIRD
@@ -2563,7 +2563,7 @@ JohtoGrassWildMons:
 	db 2, RATTATA
 	db 2, SWINUB
 	db 3, SANDSHREW
-	db 3, PHANPY
+	db 5, SANDSHREW
 	db 4, PHANPY
 	db 5, PHANPY
 	db 7, DELIBIRD
@@ -2576,7 +2576,7 @@ JohtoGrassWildMons:
 	db 2, SWINUB
 	db 3, SWINUB
 	db 3, SANDSHREW
-	db 3, PHANPY
+	db 5, SANDSHREW
 	db 4, PHANPY
 	db 5, PHANPY
 	db 7, DELIBIRD
