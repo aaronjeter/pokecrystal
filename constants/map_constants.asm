@@ -114,8 +114,7 @@ ENDM
 	map_const TEAM_ROCKET_BASE_B1F,                        15,  9 ; 49
 	map_const TEAM_ROCKET_BASE_B2F,                        15,  9 ; 50
 	map_const TEAM_ROCKET_BASE_B3F,                        15,  9 ; 51
-	map_const ILEX_FOREST,                                 15, 27 ; 52
-	map_const ILEX_FOREST_WEST,                            20, 20 ; 
+	map_const ILEX_FOREST,                                 15, 27 ; 52	
 	map_const GOLDENROD_UNDERGROUND,                       15, 18 ; 53
 	map_const GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, 15, 18 ; 54
 	map_const GOLDENROD_DEPT_STORE_B1F,                    10,  9 ; 55
@@ -155,6 +154,7 @@ ENDM
 	map_const SAFARI_ZONE_FUCHSIA_GATE_BETA,                5,  4 ; 89
 	map_const SAFARI_ZONE_BETA,                            10, 18 ; 90
 	map_const VICTORY_ROAD,                                10, 36 ; 91
+	map_const ILEX_FOREST_WEST,                            20, 20 ; 92
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4

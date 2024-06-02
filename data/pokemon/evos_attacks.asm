@@ -245,6 +245,7 @@ RattataEvosAttacks:
 	db 7, QUICK_ATTACK
 	db 10, BITE
 	db 13, HYPER_FANG
+	db 18, SHARPEN
 	db 20, FOCUS_ENERGY
 	db 27, CRUNCH
 	db 34, SUPER_FANG
@@ -257,6 +258,7 @@ RaticateEvosAttacks:
 	db 1, TAIL_WHIP
 	db 1, QUICK_ATTACK
 	db 13, HYPER_FANG
+	db 18, SHARPEN
 	db 20, SCARY_FACE
 	db 30, CRUNCH
 	db 40, SUPER_FANG
@@ -372,7 +374,7 @@ SandslashEvosAttacks:
 	db 20, MUD_SLAP
 	db 22, DIG
 	db 24, SLASH
-	db 33, SWIFT
+	db 33, SHARPEN
 	db 42, EARTHQUAKE
 	db 52, SANDSTORM
 	db 60, CURSE
@@ -681,6 +683,7 @@ VenomothEvosAttacks:
 	db 33, PSYBEAM
 	db 42, SLEEP_POWDER
 	db 52, PSYCHIC_M
+	db 60, MEDITATE
 	db 0 ; no more level-up moves
 
 DiglettEvosAttacks:
@@ -729,13 +732,14 @@ PersianEvosAttacks:
 	db 20, PAY_DAY
 	db 28, SLASH
 	db 31, CRUNCH
+	db 36, SHARPEN
 	db 41, BODY_SLAM
 	db 46, DIG
 	db 50, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 PsyduckEvosAttacks:
-	db EVOLVE_LEVEL, 33, GOLDUCK
+	db EVOLVE_LEVEL, 25, GOLDUCK
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, BUBBLE
@@ -746,7 +750,7 @@ PsyduckEvosAttacks:
 	db 23, SCREECH
 	db 25, PSYBEAM
 	db 28, AURORA_BEAM	
-	db 31, PSYCH_UP
+	db 31, MEDITATE
 	db 40, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -757,11 +761,12 @@ GolduckEvosAttacks:
 	db 23, SCREECH
 	db 25, PSYBEAM
 	db 28, AURORA_BEAM	
-	db 31, PSYCH_UP
+	db 31, MEDITATE
 	db 40, PSYCHIC_M
 	db 45, ICE_BEAM
 	db 50, HYDRO_PUMP
 	db 55, RAIN_DANCE
+	db 60, CROSS_CHOP
 	db 0 ; no more level-up moves
 
 MankeyEvosAttacks:
@@ -882,7 +887,7 @@ KadabraEvosAttacks:
 	db 18, DISABLE
 	db 24, PSYBEAM
 	db 26, RECOVER
-	db 30, FAINT_ATTACK
+	db 30, MEDITATE
 	db 36, PSYCHIC_M
 	db 45, FUTURE_SIGHT
 	db 50, REFLECT
@@ -894,7 +899,7 @@ AlakazamEvosAttacks:
 	db 1, KINESIS
 	db 21, PSYBEAM
 	db 26, RECOVER
-	db 30, FAINT_ATTACK
+	db 30, MEDITATE
 	db 36, PSYCHIC_M
 	db 45, FUTURE_SIGHT
 	db 50, REFLECT
@@ -911,7 +916,7 @@ MachopEvosAttacks:
 	db 10, ROCK_THROW
 	db 13, KARATE_CHOP
 	db 19, SEISMIC_TOSS
-	db 20, MEDITATE
+	db 20, SHARPEN
 	db 25, FORESIGHT
 	db 31, VITAL_THROW
 	db 37, CROSS_CHOP
@@ -925,7 +930,7 @@ MachokeEvosAttacks:
 	db 10, ROCK_THROW
 	db 15, KARATE_CHOP
 	db 19, SEISMIC_TOSS
-	db 20, MEDITATE
+	db 20, SHARPEN
 	db 25, FORESIGHT
 	db 34, VITAL_THROW
 	db 40, ROCK_SLIDE
@@ -1133,7 +1138,7 @@ MagnemiteEvosAttacks:
 	db 15, METAL_CLAW
 	db 21, THUNDER_WAVE
 	db 27, LOCK_ON
-	db 33, SWIFT
+	db 31, THUNDERBOLT
 	db 0 ; no more level-up moves
 
 MagnetonEvosAttacks:
@@ -1144,22 +1149,27 @@ MagnetonEvosAttacks:
 	db 16, METAL_CLAW
 	db 21, THUNDER_WAVE
 	db 27, LOCK_ON
+	db 31, THUNDERBOLT
 	db 35, TRI_ATTACK
-	db 43, THUNDERBOLT
-	db 53, ZAP_CANNON
+	db 40, VICEGRIP
+	db 45, LIGHT_SCREEN
+	db 50, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 FarfetchDEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 7, KARATE_CHOP
-	db 13, LEER
-	db 19, FURY_ATTACK
-	db 25, SWORDS_DANCE
-	db 31, AGILITY
-	db 32, CROSS_CHOP
-	db 37, SLASH
-	db 44, FALSE_SWIPE
+	db 10, SHARPEN
+	db 15, FALSE_SWIPE
+	db 22, WING_ATTACK
+	db 25, JUMP_KICK
+	db 31, CROSS_CHOP
+	db 36, RAZOR_WIND
+	db 40, SWORDS_DANCE
+	db 44, AGILITY
+	db 50, SKY_ATTACK
+	db 55, HI_JUMP_KICK
 	db 0 ; no more level-up moves
 
 DoduoEvosAttacks:
@@ -1207,8 +1217,12 @@ DewgongEvosAttacks:
 	db 21, REST
 	db 25, BUBBLEBEAM
 	db 32, TAKE_DOWN
-	db 43, ICE_BEAM
-	db 60, SAFEGUARD
+	db 31, ICE_BEAM
+	db 36, AMNESIA
+	db 40, ICY_WIND
+	db 45, MEDITATE
+	db 50, HYDRO_PUMP
+	db 55, BLIZZARD
 	db 0 ; no more level-up moves
 
 GrimerEvosAttacks:
@@ -1303,6 +1317,7 @@ GengarEvosAttacks:
 	db 31, CONFUSE_RAY
 	db 39, DREAM_EATER
 	db 48, DESTINY_BOND
+	db 60, MEDITATE
 	db 0 ; no more level-up moves
 
 OnixEvosAttacks:
@@ -1326,6 +1341,7 @@ DrowzeeEvosAttacks:
 	db 1, HYPNOSIS
 	db 5, BITE
 	db 10, DISABLE
+	db 16, SHARPEN
 	db 18, FAINT_ATTACK
 	db 25, HEADBUTT
 	db 31, POISON_GAS
@@ -1343,7 +1359,7 @@ HypnoEvosAttacks:
 	db 33, POISON_GAS
 	db 40, PURSUIT
 	db 49, PSYCHIC_M
-	db 55, PSYCH_UP
+	db 55, MEDITATE
 	db 60, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
@@ -1374,6 +1390,7 @@ KinglerEvosAttacks:
 	db 40, GUILLOTINE
 	db 45, CRABHAMMER
 	db 50, CURSE
+	db 55, AMNESIA
 	db 0 ; no more level-up moves
 
 VoltorbEvosAttacks:
@@ -1470,7 +1487,7 @@ MarowakEvosAttacks:
 HitmonleeEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, DOUBLE_KICK
-	db 6, MEDITATE
+	db 6, SHARPEN
 	db 11, ROLLING_KICK
 	db 16, JUMP_KICK
 	db 21, FOCUS_ENERGY
@@ -2161,7 +2178,7 @@ MewtwoEvosAttacks:
 	db 1, LOW_KICK
 	db 1, DISABLE
 	db 10, BARRIER
-	db 15, MEDITATE
+	db 15, SHARPEN
 	db 20, PSYBEAM
 	db 25, JUMP_KICK
 	db 30, KINESIS
@@ -2171,7 +2188,7 @@ MewtwoEvosAttacks:
 	db 50, SWIFT
 	db 55, FUTURE_SIGHT
 	db 60, SUBMISSION
-	db 65, AMNESIA
+	db 65, MEDITATE
 	db 70, OUTRAGE
 	db 80, REST
 	db 0 ; no more level-up moves
@@ -2191,6 +2208,7 @@ MewEvosAttacks:
 	db 40, SWIFT
 	db 45, BATON_PASS
 	db 50, PURSUIT
+	db 60, MEDITATE
 	db 0 ; no more level-up moves
 
 ChikoritaEvosAttacks:
@@ -2341,6 +2359,7 @@ FurretEvosAttacks:
 	db 16, QUICK_ATTACK
 	db 20, HYPER_FANG
 	db 25, DIG
+	db 28, SHARPEN
 	db 32, BODY_SLAM
 	db 36, PURSUIT
 	db 38, REST
@@ -2567,6 +2586,7 @@ XatuEvosAttacks:
 	db 45, SKY_ATTACK
 	db 50, FUTURE_SIGHT
 	db 55, RECOVER
+	db 60, MEDITATE
 	db 0 ; no more level-up moves
 
 MareepEvosAttacks:
@@ -2812,7 +2832,7 @@ EspeonEvosAttacks:
 	db 23, CONFUSE_RAY
 	db 31, PSYCHIC_M
 	db 36, SWIFT
-	db 42, PSYCH_UP
+	db 42, MEDITATE
 	db 47, FUTURE_SIGHT
 	db 52, MORNING_SUN
 	db 60, SHADOW_BALL
@@ -2919,6 +2939,7 @@ GirafarigEvosAttacks:
 	db 41, PSYCHIC_M
 	db 48, CRUNCH
 	db 52, THRASH
+	db 60, MEDITATE
 	db 0 ; no more level-up moves
 
 PinecoEvosAttacks:
@@ -3244,6 +3265,8 @@ DelibirdEvosAttacks:
 	db 40, BLIZZARD
 	db 45, REFLECT
 	db 50, LIGHT_SCREEN
+	db 55, BELLY_DRUM
+	db 60, BATON_PASS
 	db 0 ; no more level-up moves
 
 MantineEvosAttacks:
@@ -3358,6 +3381,7 @@ Porygon2EvosAttacks:
 	db 32, LOCK_ON
 	db 36, TRI_ATTACK
 	db 44, ZAP_CANNON
+	db 50, MEDITATE
 	db 0 ; no more level-up moves
 
 StantlerEvosAttacks:
@@ -3394,7 +3418,7 @@ TyrogueEvosAttacks:
 	db EVOLVE_STAT, 20, ATK_EQ_DEF, HITMONTOP
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, MEDITATE
+	db 1, SHARPEN
 	db 5, LOW_KICK
 	db 10, MACH_PUNCH
 	db 15, POUND
@@ -3606,4 +3630,5 @@ CelebiEvosAttacks:
 	db 50, PERISH_SONG
 	db 54, SAFEGUARD
 	db 58, PETAL_DANCE
+	db 60, MEDITATE
 	db 0 ; no more level-up moves
