@@ -456,20 +456,20 @@ ElmJumpRightScript:
 AideScript_WalkPotion1:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
 	turnobject PLAYER, DOWN
-	scall AideScript_GivePotion
+	scall AideScript_GivePokeballs
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
 	end
 
 AideScript_WalkPotion2:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight2
 	turnobject PLAYER, DOWN
-	scall AideScript_GivePotion
+	scall AideScript_GivePokeballs
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
 	end
 
-AideScript_GivePotion:
+AideScript_GivePokeballs:
 	opentext
-	writetext AideText_GiveYouPotion
+	writetext AideText_GiveYouPokeballs
 	promptbutton
 	giveitem POKE_BALL, 25
 	writetext AideText_AlwaysBusy
@@ -494,15 +494,12 @@ AideScript_WalkBalls2:
 
 AideScript_GiveYouBalls:
 	opentext
-	writetext AideText_GiveYouBalls
+	writetext AideText_GiveYouExp
 	promptbutton
-	getitemname STRING_BUFFER_4, POKE_BALL
+	getitemname STRING_BUFFER_4, EXP_SHARE
 	scall AideScript_ReceiveTheBalls
-	giveitem EXP_SHARE
-	writetext AideText_ExplainBalls
-	promptbutton
-	itemnotify
 	closetext
+	giveitem EXP_SHARE	
 	setscene SCENE_ELMSLAB_NOOP
 	end
 
@@ -1197,9 +1194,9 @@ ElmsLabMonEggText: ; unreferenced
 	cont "by PROF.ELM."
 	done
 
-AideText_GiveYouPotion:
+AideText_GiveYouPokeballs:
 	text "<PLAY_G>, I want"
-	line "you to have this"
+	line "you to have these"
 	cont "for your errand."
 	done
 
@@ -1234,10 +1231,10 @@ AideText_TheftTestimony:
 	line "itself."
 	done
 
-AideText_GiveYouBalls:
+AideText_GiveYouExp:
 	text "<PLAY_G>!"
 
-	para "Use these on your"
+	para "Use this on your"
 	line "#DEX quest!"
 	done
 

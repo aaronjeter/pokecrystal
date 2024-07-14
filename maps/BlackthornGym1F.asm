@@ -4,6 +4,7 @@
 	const BLACKTHORNGYM1F_COOLTRAINER_M2
 	const BLACKTHORNGYM1F_COOLTRAINER_F
 	const BLACKTHORNGYM1F_GYM_GUIDE
+	const BLACKTHORNGYM1F_GYM_NURSE
 
 BlackthornGym1F_MapScripts:
 	def_scene_scripts
@@ -142,21 +143,17 @@ BlackthornGymGuideScript:
 	iftrue .BlackthornGymGuideWinScript
 	writetext BlackthornGymGuideText
 	waitbutton
-	closetext
-	special FadeBlackQuickly
-	special ReloadSpritesNoPalettes
-	playmusic MUSIC_HEAL
-	special StubbedTrainerRankings_Healings
-	special HealParty
-	pause 60
-	special FadeInQuickly
-	special RestartMapMusic
+	closetext	
 	end
 
 .BlackthornGymGuideWinScript:
 	writetext BlackthornGymGuideWinText
 	waitbutton
-	closetext
+	closetext	
+	end
+	
+BlackthornGymNurseScript:
+	faceplayer
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
 	playmusic MUSIC_HEAL
@@ -436,3 +433,4 @@ BlackthornGym1F_MapEvents:
 	object_event  1, 14, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermPaul, -1
 	object_event  9,  2, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainerfLola, -1
 	object_event  7, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BlackthornGymGuideScript, -1
+	object_event  2, 15, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BlackthornGymNurseScript, -1

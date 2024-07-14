@@ -6,6 +6,7 @@
 	const ECRUTEAKGYM_GRANNY2
 	const ECRUTEAKGYM_GYM_GUIDE
 	const ECRUTEAKGYM_GRAMPS
+	const ECRUTEAKGYM_GYM_NURSE
 
 EcruteakGym_MapScripts:
 	def_scene_scripts
@@ -47,7 +48,12 @@ EcruteakGymMortyScript:
 .FightDone:
 	checkevent EVENT_GOT_TM30_SHADOW_BALL
 	iftrue .GotShadowBall
-	loadmem wLevelCap, 40
+	readmem wLevelCap
+	addval 5
+	writemem wLevelCap
+	readmem wBaseLevel
+	addval 5
+	writemem wBaseLevel
 	setevent EVENT_BEAT_SAGE_JEFFREY
 	setevent EVENT_BEAT_SAGE_PING
 	setevent EVENT_BEAT_MEDIUM_MARTHA
@@ -167,20 +173,16 @@ EcruteakGymGuideScript:
 	writetext EcruteakGymGuideText
 	waitbutton
 	closetext
-	special FadeBlackQuickly
-	special ReloadSpritesNoPalettes
-	playmusic MUSIC_HEAL
-	special StubbedTrainerRankings_Healings
-	special HealParty
-	pause 60
-	special FadeInQuickly
-	special RestartMapMusic
 	end
 
 .EcruteakGymGuideWinScript:
 	writetext EcruteakGymGuideWinText
 	waitbutton
 	closetext
+	end
+	
+EcruteakGymNurseScript:
+	faceplayer
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
 	playmusic MUSIC_HEAL
@@ -281,7 +283,7 @@ MortyText_FogBadgeSpeech:
 	line "move anytime."
 	
 	para "You can now level"
-	line "#MON to level 36"
+	line "#MON to lvl 40"
 
 	para "I want you to have"
 	line "this too."
@@ -475,3 +477,4 @@ EcruteakGym_MapEvents:
 	object_event  7,  9, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerMediumGrace, -1
 	object_event  7, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EcruteakGymGuideScript, -1
 	object_event  4, 14, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ECRUTEAK_GYM_GRAMPS
+	object_event  2, 15, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EcruteakGymNurseScript, -1

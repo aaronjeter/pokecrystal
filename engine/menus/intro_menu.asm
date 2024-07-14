@@ -215,6 +215,9 @@ endc
 	
 	ld a, 15
 	ld [wLevelCap], a
+	
+	ld a, 5
+	ld [wBaseLevel], a
 
 	call InitializeNPCNames
 

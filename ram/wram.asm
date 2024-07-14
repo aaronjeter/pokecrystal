@@ -3140,7 +3140,7 @@ wLizFightCount::     db
 wAnthonyFightCount:: db
 wToddFightCount::    db
 wGinaFightCount::    db
-wIrwinFightCount::   db ; unreferenced
+wBaseLevel::         db 
 wArnieFightCount::   db
 wAlanFightCount::    db
 wDanaFightCount::    db

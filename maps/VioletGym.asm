@@ -3,6 +3,7 @@
 	const VIOLETGYM_YOUNGSTER1
 	const VIOLETGYM_YOUNGSTER2
 	const VIOLETGYM_GYM_GUIDE
+	const VIOLETGYM_GYM_NURSE
 
 VioletGym_MapScripts:
 	def_scene_scripts
@@ -31,8 +32,13 @@ VioletGymFalknerScript:
 	scall VioletGymActivateRockets
 .FightDone:
 	checkevent EVENT_GOT_TM31_MUD_SLAP
-	iftrue .SpeechAfterTM
-	loadmem wLevelCap, 20
+	iftrue .SpeechAfterTM	
+	readmem wBaseLevel
+	addval 5
+	writemem wBaseLevel
+	readmem wLevelCap
+	addval 5
+	writemem wLevelCap
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
@@ -101,21 +107,17 @@ VioletGymGuideScript:
 	iftrue .VioletGymGuideWinScript
 	writetext VioletGymGuideText
 	waitbutton
-	closetext
-	special FadeBlackQuickly
-	special ReloadSpritesNoPalettes
-	playmusic MUSIC_HEAL
-	special StubbedTrainerRankings_Healings
-	special HealParty
-	pause 60
-	special FadeInQuickly
-	special RestartMapMusic
+	closetext	
 	end
 
 .VioletGymGuideWinScript:
 	writetext VioletGymGuideWinText
 	waitbutton
 	closetext
+	end
+	
+VioletGymNurseScript:
+	faceplayer
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
 	playmusic MUSIC_HEAL
@@ -332,3 +334,4 @@ VioletGym_MapEvents:
 	object_event  7,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperRod, -1
 	object_event  2, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperAbe, -1
 	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VioletGymGuideScript, -1
+	object_event  2, 13, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VioletGymNurseScript, -1

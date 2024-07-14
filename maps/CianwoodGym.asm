@@ -8,6 +8,7 @@
 	const CIANWOODGYM_BOULDER2
 	const CIANWOODGYM_BOULDER3
 	const CIANWOODGYM_BOULDER4
+	const CIANWOODGYM_GYM_NURSE
 
 CianwoodGym_MapScripts:
 	def_scene_scripts
@@ -47,7 +48,12 @@ CianwoodGymChuckScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_STORMBADGE
-	loadmem wLevelCap, 40
+	readmem wLevelCap
+	addval 5
+	writemem wLevelCap
+	readmem wBaseLevel
+	addval 5
+	writemem wBaseLevel
 	readvar VAR_BADGES
 	scall CianwoodGymActivateRockets
 .FightDone:
@@ -151,6 +157,18 @@ TrainerBlackbeltLung:
 	writetext BlackbeltLungAfterText
 	waitbutton
 	closetext
+	end
+	
+CianwoodGymNurseScript:
+	faceplayer
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 CianwoodGymBoulder:
@@ -365,3 +383,4 @@ CianwoodGym_MapEvents:
 	object_event  3,  7, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
 	object_event  4,  7, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
 	object_event  5,  7, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
+	object_event  2, 15, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CianwoodGymNurseScript, -1

@@ -6,6 +6,7 @@
 	const MAHOGANYGYM_ROCKER2
 	const MAHOGANYGYM_ROCKER3
 	const MAHOGANYGYM_GYM_GUIDE
+	const MAHOGANYGYM_GYM_NURSE
 
 MahoganyGym_MapScripts:
 	def_scene_scripts
@@ -35,7 +36,12 @@ MahoganyGymPryceScript:
 .FightDone:
 	checkevent EVENT_GOT_TM16_ICY_WIND
 	iftrue PryceScript_Defeat
-	loadmem wLevelCap, 50
+	readmem wLevelCap
+	addval 5
+	writemem wLevelCap
+	readmem wBaseLevel
+	addval 5
+	writemem wBaseLevel
 	setevent EVENT_BEAT_SKIER_ROXANNE
 	setevent EVENT_BEAT_SKIER_CLARISSA
 	setevent EVENT_BEAT_BOARDER_RONALD
@@ -154,21 +160,17 @@ MahoganyGymGuideScript:
 	iftrue .MahoganyGymGuideWinScript
 	writetext MahoganyGymGuideText
 	waitbutton
-	closetext
-	special FadeBlackQuickly
-	special ReloadSpritesNoPalettes
-	playmusic MUSIC_HEAL
-	special StubbedTrainerRankings_Healings
-	special HealParty
-	pause 60
-	special FadeInQuickly
-	special RestartMapMusic
+	closetext	
 	end
 
 .MahoganyGymGuideWinScript:
 	writetext MahoganyGymGuideWinText
 	waitbutton
-	closetext
+	closetext	
+	end
+	
+MahoganyGymNurseScript:
+	faceplayer
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
 	playmusic MUSIC_HEAL
@@ -243,7 +245,7 @@ PryceText_GlacierBadgeSpeech:
 	cont "stats of #MON."
 	
 	para "You can now level"
-	line "#MON to level 50"
+	line "#MON to lvl 50"
 
 	para "It also lets your"
 	line "#MON use WHIRL-"
@@ -434,3 +436,4 @@ MahoganyGym_MapEvents:
 	object_event  5,  9, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBoarderBrad, -1
 	object_event  2,  4, SPRITE_ROCKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBoarderDouglas, -1
 	object_event  7, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MahoganyGymGuideScript, -1
+	object_event  2, 15, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MahoganyGymNurseScript, -1

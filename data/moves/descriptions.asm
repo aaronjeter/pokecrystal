@@ -293,7 +293,7 @@ PayDayDescription:
 
 FirePunchDescription:
 	db   "A fiery punch. May"
-	next "lower SPCL DEF.@"
+	next "cause burn.@"
 
 IcePunchDescription:
 	db   "An icy punch. May"

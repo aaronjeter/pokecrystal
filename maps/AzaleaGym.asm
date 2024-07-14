@@ -6,6 +6,7 @@
 	const AZALEAGYM_TWIN1
 	const AZALEAGYM_TWIN2
 	const AZALEAGYM_GYM_GUIDE
+	const AZALEAGYM_GYM_NURSE
 
 AzaleaGym_MapScripts:
 	def_scene_scripts
@@ -35,7 +36,12 @@ AzaleaGymBugsyScript:
 .FightDone:
 	checkevent EVENT_GOT_TM49_FURY_CUTTER
 	iftrue .GotFuryCutter
-	loadmem wLevelCap, 25
+	readmem wLevelCap
+	addval 5
+	writemem wLevelCap
+	readmem wBaseLevel
+	addval 5
+	writemem wBaseLevel
 	setevent EVENT_BEAT_TWINS_AMY_AND_MAY
 	setevent EVENT_BEAT_BUG_CATCHER_BENNY
 	setevent EVENT_BEAT_BUG_CATCHER_AL
@@ -129,15 +135,9 @@ TrainerBugCatcherJosh:
 	startbattle
 	reloadmapafterbattle
 	end
-
-AzaleaGymGuideScript:
+	
+AzaleaGymNurseScript:
 	faceplayer
-	checkevent EVENT_BEAT_BUGSY
-	iftrue .AzaleaGymGuideWinScript
-	opentext
-	writetext AzaleaGymGuideText
-	waitbutton
-	closetext
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
 	playmusic MUSIC_HEAL
@@ -148,19 +148,21 @@ AzaleaGymGuideScript:
 	special RestartMapMusic
 	end
 
+AzaleaGymGuideScript:
+	faceplayer
+	checkevent EVENT_BEAT_BUGSY
+	iftrue .AzaleaGymGuideWinScript
+	opentext
+	writetext AzaleaGymGuideText
+	waitbutton
+	closetext	
+	end
+
 .AzaleaGymGuideWinScript:
 	opentext
 	writetext AzaleaGymGuideWinText
 	waitbutton
 	closetext
-	special FadeBlackQuickly
-	special ReloadSpritesNoPalettes
-	playmusic MUSIC_HEAL
-	special StubbedTrainerRankings_Healings
-	special HealParty
-	pause 60
-	special FadeInQuickly
-	special RestartMapMusic
 	end
 
 AzaleaGymStatue:
@@ -212,7 +214,7 @@ BugsyText_HiveBadgeSpeech:
 	cont "BADGE?"
 
 	para "You can now level"
-	line "#MON to level 25"
+	line "#MON to 25"
 
 	para "#MON that know"
 	line "CUT will be able"
@@ -411,3 +413,4 @@ AzaleaGym_MapEvents:
 	object_event  4, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAmyandmay1, -1
 	object_event  5, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAmyandmay2, -1
 	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, AzaleaGymGuideScript, -1
+	object_event  2, 13, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, AzaleaGymNurseScript, -1
