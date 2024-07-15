@@ -4957,6 +4957,8 @@ BattleCommand_ForceSwitch:
 	ld a, [wBattleType]
 	cp BATTLETYPE_FORCESHINY
 	jp z, .fail
+	cp BATTLETYPE_BOSS
+	jp z, .fail
 	cp BATTLETYPE_TRAP
 	jp z, .fail
 	cp BATTLETYPE_CELEBI

@@ -10,6 +10,8 @@
 	const ROUTE35_OFFICER
 	const ROUTE35_FRUIT_TREE
 	const ROUTE35_POKE_BALL
+	const ROUTE35_PONYTA
+	const ROUTE35_KADABRA
 
 Route35_MapScripts:
 	def_scene_scripts
@@ -273,6 +275,23 @@ Route35TMRollout:
 
 Route35FruitTree:
 	fruittree FRUITTREE_ROUTE_35
+	
+Route35Kadabra:
+	cry KADABRA
+	loadwildmon KADABRA, 32
+	loadvar VAR_BATTLETYPE, BATTLETYPE_BOSS
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE35_KADABRA
+	end
+	
+Route35Ponyta:
+	cry PONYTA
+	loadwildmon PONYTA, 25
+	startbattle
+	reloadmapafterbattle
+	disappear ROUTE35_PONYTA
+	end
 
 CamperIvanSeenText:
 	text "I've been getting"
@@ -486,3 +505,5 @@ Route35_MapEvents:
 	object_event  5,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerOfficerDirk, -1
 	object_event  2, 25, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35FruitTree, -1
 	object_event 13, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT
+	object_event 16, 22, SPRITE_PONYTA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route35Ponyta, -1
+	object_event  3, 26, SPRITE_KADABRA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route35Kadabra, -1

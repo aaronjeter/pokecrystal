@@ -656,25 +656,25 @@ JohtoGrassWildMons:
 	db 11, SANDSHREW
 	db 10, ZUBAT
 	db 11, ZUBAT
-	db 10, OMANYTE	
-	db 11, KABUTO
+	db 10, CUBONE	
+	db 11, CUBONE
 	db 10, SEEL
 	db 12, ONIX
 	db 10, SMOOCHUM
-	db 20, LAPRAS
+	db 20, OMANYTE
 	; day
 	db 10, GEODUDE
 	db 11, GEODUDE
 	db 10, SANDSHREW
 	db 11, SANDSHREW
 	db 10, ZUBAT
-	db 11, ZUBAT
-	db 10, KABUTO	
+	db 10, CUBONE	
+	db 11, CUBONE
 	db 11, SEEL
 	db 10, SEEL
 	db 12, ONIX
 	db 10, SMOOCHUM
-	db 20, LAPRAS
+	db 20, OMANYTE
 	; nite
 	db 10, GEODUDE
 	db 11, GEODUDE
@@ -682,12 +682,12 @@ JohtoGrassWildMons:
 	db 11, SANDSHREW
 	db 10, ZUBAT
 	db 11, ZUBAT
-	db 10, OMANYTE	
+	db 10, CUBONE	
 	db 11, SEEL
 	db 10, SEEL
 	db 12, ONIX
 	db 10, SMOOCHUM
-	db 20, LAPRAS
+	db 20, KABUTO
 	end_grass_wildmons
 
 	def_grass_wildmons UNION_CAVE_B1F
@@ -876,7 +876,7 @@ JohtoGrassWildMons:
 	db 15, VENONAT
 	db 16, VENONAT
 	db 20, BUTTERFREE
-	db 7, CELEBI
+	db 20, FARFETCH_D
 	; day
 	db 15, CHIKORITA
 	db 16, CHIKORITA
@@ -889,7 +889,7 @@ JohtoGrassWildMons:
 	db 15, VENONAT
 	db 16, VENONAT
 	db 20, BUTTERFREE
-	db 7, CELEBI
+	db 20, FARFETCH_D
 	; nite
 	db 15, CHIKORITA
 	db 16, CHIKORITA
@@ -902,7 +902,50 @@ JohtoGrassWildMons:
 	db 15, VENONAT
 	db 16, VENONAT
 	db 20, BEEDRILL
-	db 7, CELEBI
+	db 20, FARFETCH_D
+	end_grass_wildmons
+	
+	def_grass_wildmons ILEX_FOREST_WEST
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	db 15, CHIKORITA
+	db 16, CHIKORITA
+	db 15, BULBASAUR
+	db 16, BULBASAUR
+	db 16, PIDGEY
+	db 17, PIDGEY
+	db 15, PARAS
+	db 16, PARAS
+	db 15, VENONAT
+	db 16, VENONAT
+	db 20, BUTTERFREE
+	db 20, FARFETCH_D
+	; day
+	db 15, CHIKORITA
+	db 16, CHIKORITA
+	db 15, BULBASAUR
+	db 16, BULBASAUR
+	db 16, PIDGEY
+	db 17, PIDGEY
+	db 15, PARAS
+	db 16, PARAS
+	db 15, VENONAT
+	db 16, VENONAT
+	db 20, BUTTERFREE
+	db 20, FARFETCH_D
+	; nite
+	db 15, CHIKORITA
+	db 16, CHIKORITA
+	db 15, BULBASAUR
+	db 16, BULBASAUR
+	db 16, HOOTHOOT
+	db 17, HOOTHOOT
+	db 15, ODDISH
+	db 16, ODDISH
+	db 15, VENONAT
+	db 16, VENONAT
+	db 20, BEEDRILL
+	db 20, FARFETCH_D
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_1F_OUTSIDE
@@ -951,44 +994,44 @@ JohtoGrassWildMons:
 	def_grass_wildmons MOUNT_MORTAR_1F_INSIDE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 13, GEODUDE
-	db 14, RATTATA
-	db 15, MACHOP
-	db 14, RATICATE
-	db 15, ZUBAT
-	db 13, GEODUDE
-	db 14, RATTATA
-	db 15, MACHOP
-	db 14, RATICATE
-	db 15, ZUBAT
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 23, MARILL
+	db 24, MARILL
+	db 23, MACHOP
+	db 24, MACHOP
+	db 23, ZUBAT
+	db 25, GOLBAT
+	db 24, GEODUDE
+	db 25, GRAVELER
+	db 25, ONIX
+	db 15, MAGBY
+	db 20, MAGBY
+	db 35, MAGMAR
 	; day
-	db 13, GEODUDE
-	db 14, RATTATA
-	db 15, MACHOP
-	db 14, RATICATE
-	db 15, ZUBAT
-	db 13, GEODUDE
-	db 14, RATTATA
-	db 15, MACHOP
-	db 14, RATICATE
-	db 15, ZUBAT
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 23, MARILL
+	db 24, MARILL
+	db 23, MACHOP
+	db 24, MACHOP
+	db 23, ZUBAT
+	db 25, GOLBAT
+	db 24, GEODUDE
+	db 25, GRAVELER
+	db 25, ONIX
+	db 15, MAGBY
+	db 20, MAGBY
+	db 35, MAGMAR
 	; nite
-	db 13, GEODUDE
-	db 14, RATTATA
-	db 15, RATICATE
-	db 14, ZUBAT
-	db 15, MARILL
-	db 13, GEODUDE
-	db 14, RATTATA
-	db 15, RATICATE
-	db 14, ZUBAT
-	db 15, MARILL
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 23, MARILL
+	db 24, MARILL
+	db 23, MACHOP
+	db 24, MACHOP
+	db 23, ZUBAT
+	db 25, GOLBAT
+	db 24, GEODUDE
+	db 25, GRAVELER
+	db 25, ONIX
+	db 15, MAGBY
+	db 20, MAGBY
+	db 35, MAGMAR
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_2F_INSIDE
@@ -1037,44 +1080,44 @@ JohtoGrassWildMons:
 	def_grass_wildmons MOUNT_MORTAR_B1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 15, ZUBAT
-	db 17, ZUBAT
-	db 17, GOLBAT
-	db 16, MACHOP
-	db 16, GEODUDE
-	db 15, ZUBAT
-	db 17, ZUBAT
-	db 17, GOLBAT
-	db 16, MACHOP
-	db 16, GEODUDE
-	db 18, RATICATE
-	db 18, RATICATE
+	db 23, MARILL
+	db 24, MARILL
+	db 23, MACHOP
+	db 24, MACHOP
+	db 23, ZUBAT
+	db 25, GOLBAT
+	db 24, GEODUDE
+	db 25, GRAVELER
+	db 25, ONIX
+	db 15, MAGBY
+	db 20, MAGBY
+	db 35, MAGMAR
 	; day
-	db 15, ZUBAT
-	db 17, ZUBAT
-	db 17, GOLBAT
-	db 16, MACHOP
-	db 16, GEODUDE
-	db 15, ZUBAT
-	db 17, ZUBAT
-	db 17, GOLBAT
-	db 16, MACHOP
-	db 16, GEODUDE
-	db 18, RATICATE
-	db 18, RATICATE
+	db 23, MARILL
+	db 24, MARILL
+	db 23, MACHOP
+	db 24, MACHOP
+	db 23, ZUBAT
+	db 25, GOLBAT
+	db 24, GEODUDE
+	db 25, GRAVELER
+	db 25, ONIX
+	db 15, MAGBY
+	db 20, MAGBY
+	db 35, MAGMAR
 	; nite
-	db 15, ZUBAT
-	db 17, ZUBAT
-	db 17, GOLBAT
-	db 16, MARILL
-	db 16, GEODUDE
-	db 15, ZUBAT
-	db 17, ZUBAT
-	db 17, GOLBAT
-	db 16, MARILL
-	db 16, GEODUDE
-	db 18, RATICATE
-	db 18, RATICATE
+	db 23, MARILL
+	db 24, MARILL
+	db 23, MACHOP
+	db 24, MACHOP
+	db 23, ZUBAT
+	db 25, GOLBAT
+	db 24, GEODUDE
+	db 25, GRAVELER
+	db 25, ONIX
+	db 15, MAGBY
+	db 20, MAGBY
+	db 35, MAGMAR
 	end_grass_wildmons
 
 	def_grass_wildmons ICE_PATH_1F
@@ -2032,7 +2075,7 @@ JohtoGrassWildMons:
 	db 10, SPINARAK
 	db 11, MAREEP
 	db 12, PIDGEY
-	db 9, HOPPIP
+	db 9,  HOPPIP
 	db 10, WOOPER
 	db 11, WOOPER
 	db 11, MARILL
@@ -2058,7 +2101,7 @@ JohtoGrassWildMons:
 	db 11, SPINARAK
 	db 11, MAREEP
 	db 12, HOOTHOOT
-	db 7, HOPPIP
+	db 7,  HOPPIP
 	db 10, WOOPER
 	db 11, WOOPER
 	db 11, MARILL
@@ -2079,7 +2122,7 @@ JohtoGrassWildMons:
 	db 11, ZUBAT
 	db 12, ZUBAT
 	db 11, HOPPIP
-	db 7, CLEFFA
+	db 7,  CLEFFA
 	db 20, FEAROW
 	; day
 	db 12, RATTATA
@@ -2092,7 +2135,7 @@ JohtoGrassWildMons:
 	db 10, ZUBAT
 	db 11, HOPPIP
 	db 12, HOPPIP
-	db 7, CLEFFA
+	db 7,  CLEFFA
 	db 20, FEAROW
 	; nite
 	db 12, RATTATA
@@ -2104,7 +2147,7 @@ JohtoGrassWildMons:
 	db 11, ZUBAT
 	db 12, ZUBAT
 	db 13, ZUBAT
-	db 9, CLEFFA
+	db 9,  CLEFFA
 	db 11, CLEFFA
 	db 20, NOCTOWL
 	end_grass_wildmons
@@ -2550,7 +2593,7 @@ JohtoGrassWildMons:
 	db 2, RATTATA
 	db 2, SWINUB
 	db 3, SANDSHREW
-	db 3, PHANPY
+	db 5, SANDSHREW
 	db 4, PHANPY
 	db 5, PHANPY
 	db 7, DELIBIRD
@@ -2563,7 +2606,7 @@ JohtoGrassWildMons:
 	db 2, RATTATA
 	db 2, SWINUB
 	db 3, SANDSHREW
-	db 3, PHANPY
+	db 5, SANDSHREW
 	db 4, PHANPY
 	db 5, PHANPY
 	db 7, DELIBIRD
@@ -2576,7 +2619,7 @@ JohtoGrassWildMons:
 	db 2, SWINUB
 	db 3, SWINUB
 	db 3, SANDSHREW
-	db 3, PHANPY
+	db 5, SANDSHREW
 	db 4, PHANPY
 	db 5, PHANPY
 	db 7, DELIBIRD

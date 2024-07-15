@@ -291,6 +291,12 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS2_MOVE_TUTOR_F                        ; 6
 	const DAILYFLAGS2_BUENAS_PASSWORD_F                   ; 7
 
+; wTimeFlags::
+	const_def
+	const TIMEFLAG_MORN      ;0
+	const TIMEFLAG_DAY       ;1
+	const TIMEFLAG_NITE	     ;2
+
 ; wSwarmFlags::
 	const_def
 	const SWARMFLAGS_BUENAS_PASSWORD_F           ; 0

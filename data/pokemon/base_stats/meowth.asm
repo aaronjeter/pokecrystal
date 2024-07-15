@@ -1,6 +1,6 @@
 	db MEOWTH ; 052
 
-	db  40,  45,  35,  90,  40,  40
+	db  50,  70,  50,  90,  50,  50
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, DARK ; type

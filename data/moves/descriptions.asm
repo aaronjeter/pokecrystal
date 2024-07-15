@@ -293,15 +293,15 @@ PayDayDescription:
 
 FirePunchDescription:
 	db   "A fiery punch. May"
-	next "cause a burn.@"
+	next "cause burn.@"
 
 IcePunchDescription:
 	db   "An icy punch. May"
-	next "cause freezing.@"
+	next "lower attack.@"
 
 ThunderpunchDescription:
 	db   "An electric punch."
-	next "It may paralyze.@"
+	next "Lowers SPCL ATK.@"
 
 ScratchDescription:
 	db   "Scratches with"
@@ -312,20 +312,20 @@ VicegripDescription:
 	next "ful pincers.@"
 
 GuillotineDescription:
-	db   "A one-hit KO,"
+	db   "A very strong,"
 	next "pincer attack.@"
 
 RazorWindDescription:
-	db   "An attack that may"
-	next "lower DEFENSE.@"
+	db   "An attack that"
+	next "lowers DEFENSE.@"
 
 SwordsDanceDescription:
 	db   "A dance that in-"
 	next "creases ATTACK.@"
 
 CutDescription:
-	db   "Cuts using claws,"
-	next "scythes, etc.@"
+	db   "An attack that"
+	next "lowers DEFENSE.@"
 
 GustDescription:
 	db   "Whips up a strong"
@@ -420,8 +420,8 @@ DoubleEdgeDescription:
 	next "hurts the user.@"
 
 TailWhipDescription:
-	db   "Lowers the foe's"
-	next "DEFENSE.@"
+	db   "An attack that"
+	next "lowers DEFENSE.@"
 
 PoisonStingDescription:
 	db   "An attack that may"
@@ -468,8 +468,8 @@ DisableDescription:
 	next "most recent move.@"
 
 AcidDescription:
-	db   "An attack that may"
-	next "lower DEFENSE.@"
+	db   "An attack that"
+	next "lowers DEFENSE.@"
 
 EmberDescription:
 	db   "An attack that may"
@@ -544,8 +544,8 @@ SeismicTossDescription:
 	next "equals damage HP.@"
 
 StrengthDescription:
-	db   "A powerful physi-"
-	next "cal attack.@"
+	db   "An attack that"
+	next "raises ATTACK.@"
 
 AbsorbDescription:
 	db   "Steals 1/2 of the"
@@ -564,8 +564,8 @@ GrowthDescription:
 	next "ATK rating.@"
 
 RazorLeafDescription:
-	db   "Has a high criti-"
-	next "cal hit ratio.@"
+	db   "An attack that"
+	next "lowers SPC DEF.@"
 
 SolarbeamDescription:
 	db   "1st turn: Prepare"
@@ -625,7 +625,7 @@ EarthquakeDescription:
 
 FissureDescription:
 	db   "A ground-type,"
-	next "one-hit KO attack.@"
+	next "Heavy attack.@"
 
 DigDescription:
 	db   "1st turn: Burrow"
@@ -649,7 +649,7 @@ HypnosisDescription:
 
 MeditateDescription:
 	db   "Raises the user's"
-	next "ATTACK.@"
+	next "SPCL.ATTACK.@"
 
 AgilityDescription:
 	db   "Sharply increases"
@@ -769,11 +769,11 @@ BoneClubDescription:
 
 FireBlastDescription:
 	db   "An attack that"
-	next "may cause a burn.@"
+	next "lowers SPCL.DEF@"
 
 WaterfallDescription:
-	db   "An aquatic charge"
-	next "attack.@"
+	db   "An attack that"
+	next "lowers SPCL.DEF@"
 
 ClampDescription:
 	db   "Traps the foe for"
@@ -836,8 +836,8 @@ LovelyKissDescription:
 	next "to fall asleep.@"
 
 SkyAttackDescription:
-	db   "1st turn: Prepare"
-	next "2nd turn: Attack@"
+	db   "A heavy FLYING-"
+	next "Type Attack@"
 
 TransformDescription:
 	db   "The user assumes"

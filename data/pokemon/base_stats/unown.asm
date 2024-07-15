@@ -1,6 +1,6 @@
 	db UNOWN ; 201
 
-	db  70,  80,  50,  70,  80,  50
+	db  75,  75,  75,  75,  75,  75
 	;   hp  atk  def  spd  sat  sdf
 
 	db GHOST, DARK ; type

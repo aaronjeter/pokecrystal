@@ -143,6 +143,16 @@ CherrygroveGroupSprites:
 	; max 9 of 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_RATTATA
+	db SPRITE_CHIKORITA
+	db SPRITE_CYNDAQUIL
+	db SPRITE_TOTODILE
+	db SPRITE_HOPPIP
+	db SPRITE_SENTRET
+	db SPRITE_PICHU
+	db SPRITE_PIDGEY
+	db SPRITE_POLIWAG
+	db SPRITE_HOOTHOOT
 	db 0 ; end
 
 ; Route37 and EcruteakCity are connected
@@ -163,6 +173,13 @@ EcruteakGroupSprites:
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
 	db SPRITE_SUICUNE
+	db SPRITE_WOOPER
+	db SPRITE_MAREEP	
+	db SPRITE_PIDGEY
+	db SPRITE_PONYTA
+	db SPRITE_KADABRA
+	db SPRITE_GIRAFARIG
+	db SPRITE_MURKROW
 	db 0 ; end
 
 AzaleaGroupSprites:
@@ -177,6 +194,7 @@ AzaleaGroupSprites:
 	db SPRITE_FRUIT_TREE
 	db SPRITE_SLOWPOKE
 	db SPRITE_KURT_OUTSIDE ; non-walking version of SPRITE_KURT
+	db SPRITE_IGGLYBUFF
 	db 0 ; end
 
 GoldenrodGroupSprites:
@@ -215,6 +233,9 @@ CianwoodGroupSprites:
 	db SPRITE_ROCK
 	db SPRITE_STANDING_YOUNGSTER ; non-walking version of SPRITE_YOUNGSTER
 	db SPRITE_SUICUNE
+	db SPRITE_STARYU
+	db SPRITE_KRABBY
+	db SPRITE_TENTACOOL
 	db 0 ; end
 
 MahoganyGroupSprites:
@@ -262,6 +283,8 @@ BlackthornGroupSprites:
 	; 8 of max 9 walking sprites
 	db SPRITE_FRUIT_TREE
 	db SPRITE_POKE_BALL
+	db SPRITE_SANDSHREW
+	db SPRITE_PHANPY
 	db 0 ; end
 
 SilverGroupSprites:
@@ -283,6 +306,9 @@ DungeonsGroupSprites:
 	db SPRITE_GAMEBOY_KID
 	db SPRITE_GROWLITHE
 	db SPRITE_POKE_BALL
+	db SPRITE_NATU
+	db SPRITE_SCYTHER
+	db SPRITE_YANMA
 	db 0 ; end
 
 FastShipGroupSprites:

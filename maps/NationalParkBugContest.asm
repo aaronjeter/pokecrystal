@@ -11,6 +11,8 @@
 	const NATIONALPARKBUGCONTEST_YOUNGSTER7
 	const NATIONALPARKBUGCONTEST_POKE_BALL1
 	const NATIONALPARKBUGCONTEST_POKE_BALL2
+	const NATIONALPARKBUGCONTEST_SCYTHER
+	const NATIONALPARKBUGCONTEST_YANMA
 
 NationalParkBugContest_MapScripts:
 	def_scene_scripts
@@ -111,6 +113,23 @@ NationalParkBugContestParlyzHeal:
 
 NationalParkBugContestTMDig:
 	itemball TM_DIG
+	
+NationalParkBugContestScyther:
+	cry SCYTHER
+	loadwildmon SCYTHER, 30
+	loadvar VAR_BATTLETYPE, BATTLETYPE_BOSS
+	startbattle
+	reloadmapafterbattle
+	disappear NATIONALPARKBUGCONTEST_SCYTHER
+	end
+	
+NationalParkBugContestYanma:
+	cry YANMA
+	loadwildmon YANMA, 20
+	startbattle
+	reloadmapafterbattle
+	disappear NATIONALPARKBUGCONTEST_YANMA
+	end
 
 NationalParkBugContestHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_NATIONAL_PARK_HIDDEN_FULL_HEAL
@@ -248,3 +267,6 @@ NationalParkBugContest_MapEvents:
 	object_event 17, 34, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 3, 3, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant10AScript, EVENT_BUG_CATCHING_CONTESTANT_10A
 	object_event 35, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NationalParkBugContestParlyzHeal, EVENT_NATIONAL_PARK_PARLYZ_HEAL
 	object_event  1, 43, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NationalParkBugContestTMDig, EVENT_NATIONAL_PARK_TM_DIG
+	object_event  0, 43, SPRITE_SCYTHER, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NationalParkBugContestScyther, -1
+	object_event 24, 10, SPRITE_YANMA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, NationalParkBugContestYanma, -1
+	

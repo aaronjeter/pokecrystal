@@ -3686,6 +3686,8 @@ TryToRunAwayFromBattle:
 	jp z, .cant_escape
 	cp BATTLETYPE_SUICUNE
 	jp z, .cant_escape
+	cp BATTLETYPE_BOSS
+	jp z, .cant_escape
 
 	ld a, [wLinkMode]
 	and a
@@ -6111,21 +6113,26 @@ LoadEnemyMon:
 .NotRoaming:
 ; Register a contains wBattleType
 
-; Forced shiny battle type
+; Forced shiny battle types
 ; Used by Red Gyarados at Lake of Rage
 	cp BATTLETYPE_FORCESHINY
-	jr nz, .GenerateDVs
-
-	ld b, $ff ; Max atk/def dv
-	ld c, $ff ; Max spd/spec dv
-	jr .UpdateDVs
+	jr z, .GenerateShinyDVs
+	
+	cp BATTLETYPE_BOSS
+	jr z, .GenerateShinyDVs
 
 .GenerateDVs:
-; Generate new random DVs
+	; Generate new random DVs
 	call BattleRandom
 	ld b, a
 	call BattleRandom
 	ld c, a
+	jr .UpdateDVs
+
+.GenerateShinyDVs:
+	ld b, $ff ; Max atk/def dv
+	ld c, $ff ; Max spd/spec dv
+	jr .UpdateDVs
 
 .UpdateDVs:
 ; Input DVs in register bc
@@ -6211,7 +6218,7 @@ LoadEnemyMon:
 ; Try again if length < 1024 mm (i.e. if HIGH(length) < 3 feet)
 	ld a, [wMagikarpLength]
 	cp HIGH(1024)
-	jr c, .GenerateDVs ; try again
+	jp c, .GenerateDVs ; try again
 
 ; Finally done with DVs
 
@@ -6266,6 +6273,21 @@ LoadEnemyMon:
 	xor a
 	ld [hli], a
 
+; Boss Pokemon Load with triple HP
+	cp BATTLETYPE_BOSS
+	jr nz, .LoadFullHP
+	ld a, [wEnemyMonMaxHP]
+	ld b, a	
+	add a, b
+	add a, b
+	ld [hli], a
+	ld a, [wEnemyMonMaxHP + 1]	
+	add a, b
+	add a, b
+	ld [hl], a	
+	jr .Moves
+	
+.LoadFullHP:
 ; Full HP..
 	ld a, [wEnemyMonMaxHP]
 	ld [hli], a

@@ -5,6 +5,7 @@
 	const GOLDENRODGYM_BEAUTY1
 	const GOLDENRODGYM_BEAUTY2
 	const GOLDENRODGYM_GYM_GUIDE
+	const GOLDENRODGYM_GYM_NURSE
 
 GoldenrodGym_MapScripts:
 	def_scene_scripts
@@ -67,7 +68,12 @@ GoldenrodGymWhitneyScript:
 	verbosegiveitem TM_ATTRACT
 	iffalse .NoRoomForAttract
 	setevent EVENT_GOT_TM45_ATTRACT
-	loadmem wLevelCap, 30
+	readmem wLevelCap
+	addval 5
+	writemem wLevelCap
+	readmem wBaseLevel
+	addval 5
+	writemem wBaseLevel
 	writetext WhitneyAttractText
 	waitbutton
 	closetext
@@ -170,15 +176,7 @@ GoldenrodGymGuideScript:
 	opentext
 	writetext GoldenrodGymGuideText
 	waitbutton
-	closetext
-	special FadeBlackQuickly
-	special ReloadSpritesNoPalettes
-	playmusic MUSIC_HEAL
-	special StubbedTrainerRankings_Healings
-	special HealParty
-	pause 60
-	special FadeInQuickly
-	special RestartMapMusic
+	closetext	
 	end
 
 .GoldenrodGymGuideWinScript:
@@ -186,6 +184,10 @@ GoldenrodGymGuideScript:
 	writetext GoldenrodGymGuideWinText
 	waitbutton
 	closetext
+	end
+	
+GoldenrodGymNurseScript:
+	faceplayer
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
 	playmusic MUSIC_HEAL
@@ -277,7 +279,7 @@ WhitneyPlainBadgeText:
 	cont "SPEED."
 	
 	para "You can now level"
-	line "#MON to level 30"
+	line "#MON to lvl 30"
 
 	para "Oh, you can have"
 	line "this too!"
@@ -439,3 +441,4 @@ GoldenrodGym_MapEvents:
 	object_event  0,  2, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBeautyVictoria, -1
 	object_event 19,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBeautySamantha, -1
 	object_event  5, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGymGuideScript, -1
+	object_event  0, 15, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGymNurseScript, -1

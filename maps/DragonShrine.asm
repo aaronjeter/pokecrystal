@@ -159,7 +159,12 @@ DragonShrineTakeTestScript:
 	writetext DragonShrineHereRisingBadgeText
 	waitbutton
 	setflag ENGINE_RISINGBADGE
-	loadmem wLevelCap, 60
+	readmem wLevelCap
+	addval 5
+	writemem wLevelCap
+	readmem wBaseLevel
+	addval 5
+	writemem wBaseLevel
 	playsound SFX_GET_BADGE
 	waitsfx
 	special RestartMapMusic

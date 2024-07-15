@@ -123,7 +123,11 @@ ReadTrainerPartyPieces:
 	ret z
 
 ; level
+	ld b, a
+	ld a, [wBaseLevel]
+	add a, b
 	ld [wCurPartyLevel], a
+	
 
 ; species
 	call GetNextTrainerDataByte

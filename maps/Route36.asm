@@ -47,26 +47,8 @@ Route36SuicuneScript:
 	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE
 	end
 
-SudowoodoScript:
-	checkitem SQUIRTBOTTLE
-	iftrue .Fight
-
-	waitsfx
-	playsound SFX_SANDSTORM
-	applymovement ROUTE36_WEIRD_TREE, SudowoodoShakeMovement
-	end
-
-.Fight:
-	opentext
-	writetext UseSquirtbottleText
-	yesorno
-	iffalse DidntUseSquirtbottleScript
-	closetext
-WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
-	opentext
-	writetext UsedSquirtbottleText
-	waitbutton
-	closetext
+SudowoodoScript:	
+WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)	
 	waitsfx
 	playsound SFX_SANDSTORM
 	applymovement ROUTE36_WEIRD_TREE, SudowoodoShakeMovement

@@ -4,6 +4,8 @@
 	const CHERRYGROVECITY_TEACHER
 	const CHERRYGROVECITY_YOUNGSTER
 	const CHERRYGROVECITY_FISHER
+	const CHERRYGROVE_HOOTHOOT1
+	const CHERRYGROVE_HOOTHOOT2
 
 CherrygroveCity_MapScripts:
 	def_scene_scripts
@@ -234,6 +236,10 @@ CherrygroveCityPokecenterSign:
 
 CherrygroveCityMartSign:
 	jumpstd MartSignScript
+	
+Cherrygrove_Hoothoot:
+	cry HOOTHOOT
+	end
 
 GuideGentMovement1:
 	step LEFT
@@ -570,3 +576,6 @@ CherrygroveCity_MapEvents:
 	object_event 27, 12, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
 	object_event 23,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
 	object_event  7, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
+	object_event 17, 12, SPRITE_HOOTHOOT, SPRITEMOVEDATA_POKEMON, 0, 0, -1, NITE, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Hoothoot, -1
+	object_event 19,  6, SPRITE_HOOTHOOT, SPRITEMOVEDATA_POKEMON, 0, 0, -1, NITE, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Cherrygrove_Hoothoot, -1
+	

@@ -1,6 +1,6 @@
 	db NATU ; 177
 
-	db  40,  50,  45,  70,  70,  45
+	db  40,  60,  45,  85,  85,  45
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, FLYING ; type

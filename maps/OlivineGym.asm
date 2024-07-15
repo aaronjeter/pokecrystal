@@ -1,6 +1,7 @@
 	object_const_def
 	const OLIVINEGYM_JASMINE
 	const OLIVINEGYM_GYM_GUIDE
+	const OLIVINEGYM_GYM_NURSE
 
 OlivineGym_MapScripts:
 	def_scene_scripts
@@ -30,7 +31,12 @@ OlivineGymJasmineScript:
 .FightDone:
 	checkevent EVENT_GOT_TM23_IRON_TAIL
 	iftrue .GotIronTail
-	loadmem wLevelCap, 45
+	readmem wLevelCap
+	addval 5
+	writemem wLevelCap
+	readmem wBaseLevel
+	addval 5
+	writemem wBaseLevel
 	writetext Jasmine_BadgeSpeech
 	promptbutton
 	verbosegiveitem TM_IRON_TAIL
@@ -73,14 +79,6 @@ OlivineGymGuideScript:
 	writetext OlivineGymGuideText
 	waitbutton
 	closetext
-	special FadeBlackQuickly
-	special ReloadSpritesNoPalettes
-	playmusic MUSIC_HEAL
-	special StubbedTrainerRankings_Healings
-	special HealParty
-	pause 60
-	special FadeInQuickly
-	special RestartMapMusic
 	end
 
 .OlivineGymGuideWinScript:
@@ -88,6 +86,17 @@ OlivineGymGuideScript:
 	writetext OlivineGymGuideWinText
 	waitbutton
 	closetext
+	end
+
+.OlivineGymGuidePreScript:
+	opentext
+	writetext OlivineGymGuidePreText
+	waitbutton
+	closetext
+	end
+	
+OlivineGymNurseScript:
+	faceplayer
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
 	playmusic MUSIC_HEAL
@@ -96,13 +105,6 @@ OlivineGymGuideScript:
 	pause 60
 	special FadeInQuickly
 	special RestartMapMusic
-	end
-
-.OlivineGymGuidePreScript:
-	opentext
-	writetext OlivineGymGuidePreText
-	waitbutton
-	closetext
 	end
 
 OlivineGymStatue:
@@ -163,7 +165,7 @@ Jasmine_BadgeSpeech:
 	cont "DEFENSE."
 	
 	para "You can now level"
-	line "#MON to level 45"
+	line "#MON to lvl 45"
 
 	para "…Um… Please take"
 	line "this too…"
@@ -235,3 +237,4 @@ OlivineGym_MapEvents:
 	def_object_events
 	object_event  5,  3, SPRITE_JASMINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineGymJasmineScript, EVENT_OLIVINE_GYM_JASMINE
 	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineGymGuideScript, -1
+	object_event  2, 13, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineGymNurseScript, -1
