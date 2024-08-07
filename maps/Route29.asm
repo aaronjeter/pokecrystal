@@ -53,7 +53,7 @@ Route29Tutorial1:
 	follow ROUTE29_COOLTRAINER_M1, PLAYER
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData1b
 	stopfollow
-	loadwildmon RATTATA, 5
+	loadwildmon RATTATA, 1
 	catchtutorial BATTLETYPE_TUTORIAL
 	turnobject ROUTE29_COOLTRAINER_M1, UP
 	opentext
@@ -78,7 +78,7 @@ Route29Tutorial2:
 	follow ROUTE29_COOLTRAINER_M1, PLAYER
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData2b
 	stopfollow
-	loadwildmon RATTATA, 5
+	loadwildmon RATTATA, 1
 	catchtutorial BATTLETYPE_TUTORIAL
 	turnobject ROUTE29_COOLTRAINER_M1, UP
 	opentext
@@ -118,7 +118,7 @@ CatchingTutorialDudeScript:
 	yesorno
 	iffalse .Declined
 	closetext
-	loadwildmon RATTATA, 5
+	loadwildmon RATTATA, 1
 	catchtutorial BATTLETYPE_TUTORIAL
 	opentext
 	writetext CatchingTutorialDebriefText
@@ -251,7 +251,7 @@ DudeMovementData2b:
 	
 Route29_Rattata:
 	cry RATTATA
-	loadwildmon RATTATA, 5
+	loadwildmon RATTATA, 1
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE29_RATTATA
@@ -259,7 +259,7 @@ Route29_Rattata:
 	
 Route29_Hoppip:
 	cry HOPPIP
-	loadwildmon HOPPIP, 5
+	loadwildmon HOPPIP, 1
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE29_HOPPIP
@@ -267,7 +267,7 @@ Route29_Hoppip:
 	
 Route29_Sentret:
 	cry SENTRET
-	loadwildmon SENTRET, 5
+	loadwildmon SENTRET, 3
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE29_SENTRET

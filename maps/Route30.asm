@@ -262,7 +262,7 @@ Route30_Pidgey:
 	
 Route30_Pichu:
 	cry PICHU
-	loadwildmon PICHU, 3
+	loadwildmon PICHU, 1
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE30_PICHU
@@ -270,7 +270,7 @@ Route30_Pichu:
 	
 Route30_Poliwag1:
 	cry POLIWAG
-	loadwildmon POLIWAG, 4
+	loadwildmon POLIWAG, 2
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE30_POLIWAG1
@@ -278,7 +278,7 @@ Route30_Poliwag1:
 	
 Route30_Poliwag2:
 	cry POLIWAG
-	loadwildmon POLIWAG, 6
+	loadwildmon POLIWAG, 5
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE30_POLIWAG2

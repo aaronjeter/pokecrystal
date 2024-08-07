@@ -172,7 +172,7 @@ Route46FruitTree2:
 	
 Route29_Sandshrew:
 	cry SANDSHREW
-	loadwildmon SANDSHREW, 5
+	loadwildmon SANDSHREW, 4
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE46_SANDSHREW
@@ -180,7 +180,7 @@ Route29_Sandshrew:
 	
 Route29_Phanpy:
 	cry RATTATA
-	loadwildmon PHANPY, 3
+	loadwildmon PHANPY, 1
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE46_PHANPY

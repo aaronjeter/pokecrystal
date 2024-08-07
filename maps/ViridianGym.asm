@@ -15,8 +15,22 @@ ViridianGymBlueScript:
 	writetext LeaderBlueBeforeText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	sjump .Easy	
+
+.Hard
+	winlosstext LeaderBlueWinText, 0
+	loadtrainer BLUE, BLUE2
+	sjump .Fight
+
+.Easy
 	winlosstext LeaderBlueWinText, 0
 	loadtrainer BLUE, BLUE1
+	sjump .Fight
+
+.Fight	
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLUE
@@ -25,6 +39,17 @@ ViridianGymBlueScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_EARTHBADGE
+	readmem wBaseLevel
+	addval 3
+	writemem wBaseLevel
+	readmem wLevelCap
+	addval 3
+	writemem wLevelCap
+	readmem wWildLevel
+	addval 3
+	writemem wWildLevel
+	readvar VAR_BADGES
+	scall ViridianGymActivateRockets
 	writetext LeaderBlueAfterText
 	waitbutton
 	closetext
@@ -34,7 +59,36 @@ ViridianGymBlueScript:
 	writetext LeaderBlueEpilogueText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext LeaderBlueWinText, 0
+	loadtrainer BLUE, BLUE2
+	sjump .Rematch
+	
+.EasyRematch
+	winlosstext LeaderBlueWinText, 0
+	loadtrainer BLUE, BLUE1
+	sjump .Rematch
+	
+.Rematch	
+	startbattle
+	reloadmapafterbattle	
 	end
+	
+ViridianGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+	
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript	
 
 ViridianGymGuideScript:
 	faceplayer

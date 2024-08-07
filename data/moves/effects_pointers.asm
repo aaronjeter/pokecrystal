@@ -69,6 +69,8 @@ MoveEffectsPointers:
 	dw Reflect
 	dw DoPoison
 	dw DoParalyze
+	dw DoBurn
+	dw DoFreeze
 	dw AttackDownHit
 	dw DefenseDownHit
 	dw SpeedDownHit

@@ -278,7 +278,7 @@ Route35FruitTree:
 	
 Route35Kadabra:
 	cry KADABRA
-	loadwildmon KADABRA, 32
+	loadwildmon KADABRA, 10
 	loadvar VAR_BATTLETYPE, BATTLETYPE_BOSS
 	startbattle
 	reloadmapafterbattle
@@ -287,7 +287,7 @@ Route35Kadabra:
 	
 Route35Ponyta:
 	cry PONYTA
-	loadwildmon PONYTA, 25
+	loadwildmon PONYTA, 5
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE35_PONYTA

@@ -160,11 +160,14 @@ DragonShrineTakeTestScript:
 	waitbutton
 	setflag ENGINE_RISINGBADGE
 	readmem wLevelCap
-	addval 5
+	addval 4
 	writemem wLevelCap
 	readmem wBaseLevel
-	addval 5
+	addval 4
 	writemem wBaseLevel
+	readmem wWildLevel
+	addval 4
+	writemem wWildLevel
 	playsound SFX_GET_BADGE
 	waitsfx
 	special RestartMapMusic
@@ -640,14 +643,7 @@ DragonShrinePlayerReceivedRisingBadgeText:
 	done
 
 DragonShrineRisingBadgeExplanationText:
-	text "RISINGBADGE will"
-	line "enable your"
-
-	para "#MON to use the"
-	line "move for climbing"
-	cont "waterfalls."
-
-	para "Also, all #MON"
+	text "Also, all #MON"
 	line "will recognize you"
 
 	para "as a trainer and"
@@ -657,7 +653,7 @@ DragonShrineRisingBadgeExplanationText:
 	line "question."
 	
 	para "You can now level"
-	line "#MON to level 60"
+	line "#MON 4 higher"
 	
 	done
 

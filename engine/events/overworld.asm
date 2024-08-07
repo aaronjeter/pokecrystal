@@ -47,20 +47,6 @@ CheckEngineFlag:
 	xor a
 	ret
 
-CheckBadge:
-; Check engine flag a (ENGINE_ZEPHYRBADGE thru ENGINE_EARTHBADGE)
-; Display "Badge required" text and return carry if the badge is not owned
-	call CheckEngineFlag
-	ret nc
-	ld hl, .BadgeRequiredText
-	call MenuTextboxBackup ; push text to queue
-	scf
-	ret
-
-.BadgeRequiredText:
-	text_far _BadgeRequiredText
-	text_end
-
 CheckPartyMove:
 ; Check if a monster in your party has move d.
 
@@ -238,16 +224,9 @@ CutFunction:
 	dw .FailCut
 
 .CheckAble:
-	ld de, ENGINE_HIVEBADGE
-	call CheckBadge
-	jr c, .nohivebadge
 	call CheckMapForSomethingToCut
 	jr c, .nothingtocut
 	ld a, $1
-	ret
-
-.nohivebadge
-	ld a, $80
 	ret
 
 .nothingtocut
@@ -385,10 +364,7 @@ FlashFunction:
 	ld [wFieldMoveSucceeded], a
 	ret
 
-.CheckUseFlash:
-	ld de, ENGINE_ZEPHYRBADGE
-	farcall CheckBadge
-	jr c, .nozephyrbadge
+.CheckUseFlash:	
 	push hl
 	farcall SpecialAerodactylChamber
 	pop hl
@@ -403,10 +379,6 @@ FlashFunction:
 
 .notadarkcave
 	call FieldMoveFailed
-	ld a, $80
-	ret
-
-.nozephyrbadge
 	ld a, $80
 	ret
 
@@ -452,9 +424,6 @@ SurfFunction:
 	dw .AlreadySurfing
 
 .TrySurf:
-	ld de, ENGINE_FOGBADGE
-	call CheckBadge
-	jr c, .nofogbadge
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
 	jr nz, .cannotsurf
@@ -472,9 +441,6 @@ SurfFunction:
 	farcall CheckFacingObject
 	jr c, .cannotsurf
 	ld a, $1
-	ret
-.nofogbadge
-	ld a, $80
 	ret
 .alreadyfail
 	ld a, $3
@@ -609,11 +575,6 @@ TrySurfOW::
 ; Check tile permissions.
 	call CheckDirection
 	jr c, .quit
-
-; Step 1
-	ld de, ENGINE_FOGBADGE
-	call CheckEngineFlag
-	jr c, .quit
 	
 ; Step 2
 	ld a, HM_SURF
@@ -681,9 +642,6 @@ FlyFunction:
 	dw .FailFly
 
 .TryFly:
-	ld de, ENGINE_STORMBADGE
-	call CheckBadge
-	jr c, .nostormbadge
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	jr z, .outdoors
@@ -704,10 +662,6 @@ FlyFunction:
 	ld [wDefaultSpawnpoint], a
 	call CloseWindow
 	ld a, $1
-	ret
-
-.nostormbadge
-	ld a, $82
 	ret
 
 .indoors
@@ -762,8 +716,6 @@ WaterfallFunction:
 	ret
 
 .TryWaterfall:
-	ld de, ENGINE_RISINGBADGE
-	farcall CheckBadge
 	ld a, $80
 	ret c
 	call CheckMapCanWaterfall
@@ -829,10 +781,6 @@ Script_UsedWaterfall:
 	text_end
 
 TryWaterfallOW::
-; Step 1
-	ld de, ENGINE_RISINGBADGE
-	call CheckEngineFlag
-	jr c, .failed
 ; Step 2
 	ld a, HM_WATERFALL
 	ld [wCurItem], a
@@ -1101,10 +1049,7 @@ StrengthFunction:
 	ld [wFieldMoveSucceeded], a
 	ret
 
-.TryStrength:
-	ld de, ENGINE_PLAINBADGE
-	call CheckBadge
-	jr c, .Failed
+.TryStrength:	
 	jr .UseStrength
 
 .AlreadyUsingStrength: ; unreferenced
@@ -1195,11 +1140,6 @@ BouldersMayMoveText:
 	text_end
 
 TryStrengthOW:
-; Step 1
-	ld de, ENGINE_PLAINBADGE
-	call CheckEngineFlag
-	jr c, .nope
-
 ; Step 2
 	ld a, HM_STRENGTH
 	ld [wCurItem], a
@@ -1254,9 +1194,6 @@ WhirlpoolFunction:
 	dw .FailWhirlpool
 
 .TryWhirlpool:
-	ld de, ENGINE_GLACIERBADGE
-	call CheckBadge
-	jr c, .noglacierbadge
 	call TryWhirlpoolMenu
 	jr c, .failed
 	ld a, $1
@@ -1264,10 +1201,6 @@ WhirlpoolFunction:
 
 .failed
 	ld a, $2
-	ret
-
-.noglacierbadge
-	ld a, $80
 	ret
 
 .DoWhirlpool:
@@ -1345,13 +1278,6 @@ DisappearWhirlpool:
 	ret
 
 TryWhirlpoolOW::
-; Step 1
-	ld de, ENGINE_GLACIERBADGE
-	ld b, CHECK_FLAG
-	farcall EngineFlagAction
-	ld a, c
-	and a
-	jr z, .failed  ; .fail, dont have needed badge
 ; Step 2
 	ld a, HM_WHIRLPOOL
 	ld [wCurItem], a
@@ -1959,11 +1885,6 @@ GotOffBikeText:
 	text_end
 
 TryCutOW::
-; Step 1
-	ld de, ENGINE_HIVEBADGE
-	call CheckEngineFlag
-	jr c, .cant_cut
-	
 ; Step 2
 	ld a, HM_CUT
 	ld [wCurItem], a

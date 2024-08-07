@@ -16,6 +16,13 @@ MountMoonNoopScene:
 	end
 
 MountMoonRivalBattleScript:
+	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
+	iftrue .FightRival
+	setscene SCENE_MOUNTMOON_NOOP
+	disappear MOUNTMOON_RIVAL
+	end
+	
+.FightRival
 	turnobject PLAYER, RIGHT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic

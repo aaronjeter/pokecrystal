@@ -107,7 +107,7 @@ MoveNames::
 	li "RECOVER"
 	li "HARDEN"
 	li "MINIMIZE"
-	li "SMOKESCREEN"
+	li "WILL O WISP"
 	li "CONFUSE RAY"
 	li "WITHDRAW"
 	li "DEFENSE CURL"

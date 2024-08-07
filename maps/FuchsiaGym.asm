@@ -20,8 +20,28 @@ FuchsiaGymJanineScript:
 	writetext JanineText_DisappointYou
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
+	winlosstext JanineText_ToughOne, 0
+	loadtrainer JANINE, JANINE3
+	sjump .Fight
+
+.Medium
+	winlosstext JanineText_ToughOne, 0
+	loadtrainer JANINE, JANINE2
+	sjump .Fight
+
+.Easy
 	winlosstext JanineText_ToughOne, 0
 	loadtrainer JANINE, JANINE1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_JANINE
@@ -39,6 +59,17 @@ FuchsiaGymJanineScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_SOULBADGE
+	readmem wBaseLevel
+	addval 3
+	writemem wBaseLevel
+	readmem wLevelCap
+	addval 3
+	writemem wLevelCap
+	readmem wWildLevel
+	addval 3
+	writemem wWildLevel
+	readvar VAR_BADGES
+	scall FuchsiaGymActivateRockets
 	sjump .AfterBattle
 .FightDone:
 	faceplayer
@@ -55,7 +86,42 @@ FuchsiaGymJanineScript:
 	writetext JanineText_ApplyMyself
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext JanineText_ToughOne, 0
+	loadtrainer JANINE, JANINE3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext JanineText_ToughOne, 0
+	loadtrainer JANINE, JANINE2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext JanineText_ToughOne, 0
+	loadtrainer JANINE, JANINE1
+	sjump .Rematch
+	
+.Rematch	
+	startbattle
+	reloadmapafterbattle	
 	end
+	
+FuchsiaGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+	
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 LassAliceScript:
 	checkevent EVENT_BEAT_LASS_ALICE

@@ -18,8 +18,28 @@ VioletGymFalknerScript:
 	writetext FalknerIntroText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
+	winlosstext FalknerWinLossText, 0
+	loadtrainer FALKNER, FALKNER3
+	sjump .Fight
+
+.Medium
+	winlosstext FalknerWinLossText, 0
+	loadtrainer FALKNER, FALKNER2
+	sjump .Fight
+
+.Easy
 	winlosstext FalknerWinLossText, 0
 	loadtrainer FALKNER, FALKNER1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_FALKNER
@@ -34,11 +54,14 @@ VioletGymFalknerScript:
 	checkevent EVENT_GOT_TM31_MUD_SLAP
 	iftrue .SpeechAfterTM	
 	readmem wBaseLevel
-	addval 5
+	addval 4
 	writemem wBaseLevel
 	readmem wLevelCap
-	addval 5
+	addval 4
 	writemem wLevelCap
+	readmem wWildLevel
+	addval 4
+	writemem wWildLevel
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
@@ -55,8 +78,30 @@ VioletGymFalknerScript:
 
 .SpeechAfterTM:
 	writetext FalknerRematchText
+	waitbutton
+	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext FalknerWinLossText, 0
+	loadtrainer FALKNER, FALKNER3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext FalknerWinLossText, 0
+	loadtrainer FALKNER, FALKNER2
+	sjump .Rematch
+
+.EasyRematch
 	winlosstext FalknerWinLossText, 0
 	loadtrainer FALKNER, FALKNER1
+	sjump .Rematch
+	
+.Rematch	
 	startbattle
 	reloadmapafterbattle
 	opentext
@@ -66,7 +111,7 @@ VioletGymFalknerScript:
 .NoRoomForMudSlap:
 	closetext
 	end
-
+	
 VioletGymActivateRockets:
 	ifequal 7, .RadioTowerRockets
 	ifequal 6, .GoldenrodRockets
@@ -172,7 +217,7 @@ FalknerWinLossText:
 	cont "ZEPHYRBADGE."
 	
 	para "You can now level"
-	line "#MON to level 20"
+	line "#MON 4 higher"
 	done
 	
 FalknerRematchText:
@@ -193,17 +238,7 @@ ReceivedZephyrBadgeText:
 	done
 
 FalknerZephyrBadgeText:
-	text "ZEPHYRBADGE"
-	line "raises the attack"
-	cont "power of #MON."
-
-	para "It also enables"
-	line "#MON to use"
-
-	para "FLASH, if they"
-	line "have it, anytime."
-
-	para "Here--take this"
+	text "Here--take this"
 	line "too."
 	done
 

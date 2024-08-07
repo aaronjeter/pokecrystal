@@ -285,7 +285,6 @@ HandleBetweenTurnEffects:
 .NoMoreFaintingConditions:
 	call HandleLeftovers
 	call HandleMysteryberry
-	call HandleDefrost
 	call HandleSafeguard
 	call HandleScreens
 	call HandleStatBoostingHeldItems
@@ -768,7 +767,7 @@ TryEnemyFlee:
 	jr nz, .Stay
 
 	ld a, [wEnemyMonStatus]
-	and 1 << FRZ | SLP_MASK
+	and SLP_MASK
 	jr nz, .Stay
 
 	ld a, [wTempEnemyMonSpecies]
@@ -1010,15 +1009,21 @@ ResidualDamage:
 
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVar
-	and 1 << PSN | 1 << BRN
+	and 1 << PSN | 1 << BRN | 1 << FRZ
 	jr z, .did_psn_brn
 
 	ld hl, HurtByPoisonText
 	ld de, ANIM_PSN
-	and 1 << BRN
-	jr z, .got_anim
+	bit PSN, a
+	jr nz, .got_anim
+	
 	ld hl, HurtByBurnText
 	ld de, ANIM_BRN
+	bit BRN, a
+	jr nz, .got_anim
+	
+	ld hl, HurtByFrostbiteText
+	ld de, ANIM_FRZ
 .got_anim
 
 	push de
@@ -6272,19 +6277,23 @@ LoadEnemyMon:
 ; Unused byte
 	xor a
 	ld [hli], a
-
-; Boss Pokemon Load with triple HP
+	
+	ld a, [wBattleType]
 	cp BATTLETYPE_BOSS
 	jr nz, .LoadFullHP
+	jr .LoadBossHP	
+
+; Boss Pokemon load with bonus HP
+.LoadBossHP:
 	ld a, [wEnemyMonMaxHP]
-	ld b, a	
-	add a, b
-	add a, b
 	ld [hli], a
-	ld a, [wEnemyMonMaxHP + 1]	
+	ld a, [wEnemyMonMaxHP + 1]
+	ld b, a
+	ld a, [wEnemyMonLevel]
 	add a, b
 	add a, b
-	ld [hl], a	
+	add a, b
+	ld [hl], a
 	jr .Moves
 	
 .LoadFullHP:
@@ -6620,6 +6629,7 @@ ApplyStatusEffectOnEnemyStats:
 ApplyStatusEffectOnStats:
 	ldh [hBattleTurn], a
 	call ApplyPrzEffectOnSpeed
+	call ApplyFrbEffectOnSpclAttack
 	jp ApplyBrnEffectOnAttack
 
 ApplyPrzEffectOnSpeed:
@@ -6705,6 +6715,36 @@ ApplyBrnEffectOnAttack:
 	ld b, $1 ; min attack
 
 .enemy_ok
+	ld [hl], b
+	ret
+	
+ApplyFrbEffectOnSpclAttack:
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .enemy
+	ld a, [wBattleMonStatus]
+	and 1 << FRZ
+	ret z
+	ld hl, wBattleMonSpclAtk + 1
+	jr .proceed
+
+.enemy
+	ld a, [wEnemyMonStatus]
+	and 1 << FRZ
+	ret z
+	ld hl, wEnemyMonSpclAtk + 1
+.proceed
+	ld a, [hld]
+	ld b, a
+	ld a, [hl]
+	srl a
+	rr b
+	ld [hli], a
+	or b
+	jr nz, .ok
+	ld b, $1 ; min special attack
+
+.ok
 	ld [hl], b
 	ret
 

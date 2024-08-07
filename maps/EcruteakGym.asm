@@ -30,8 +30,28 @@ EcruteakGymMortyScript:
 	writetext MortyIntroText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
+	winlosstext MortyWinLossText, 0
+	loadtrainer MORTY, MORTY3
+	sjump .Fight
+
+.Medium
+	winlosstext MortyWinLossText, 0
+	loadtrainer MORTY, MORTY2
+	sjump .Fight
+
+.Easy
 	winlosstext MortyWinLossText, 0
 	loadtrainer MORTY, MORTY1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_MORTY
@@ -49,11 +69,14 @@ EcruteakGymMortyScript:
 	checkevent EVENT_GOT_TM30_SHADOW_BALL
 	iftrue .GotShadowBall
 	readmem wLevelCap
-	addval 5
+	addval 4
 	writemem wLevelCap
 	readmem wBaseLevel
-	addval 5
+	addval 4
 	writemem wBaseLevel
+	readmem wWildLevel
+	addval 4
+	writemem wWildLevel
 	setevent EVENT_BEAT_SAGE_JEFFREY
 	setevent EVENT_BEAT_SAGE_PING
 	setevent EVENT_BEAT_MEDIUM_MARTHA
@@ -70,8 +93,30 @@ EcruteakGymMortyScript:
 
 .GotShadowBall:
 	writetext MortyFightDoneText
+	waitbutton
+	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext MortyFightDoneText, 0
+	loadtrainer MORTY, MORTY3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext MortyFightDoneText, 0
+	loadtrainer MORTY, MORTY2
+	sjump .Rematch
+
+.EasyRematch
 	winlosstext MortyFightDoneText, 0
 	loadtrainer MORTY, MORTY1
+	sjump .Rematch
+	
+.Rematch
 	startbattle
 	reloadmapafterbattle
 .NoRoomForShadowBall:
@@ -274,16 +319,10 @@ MortyText_FogBadgeSpeech:
 	line "BADGE, #MON up"
 
 	para "to L50 will obey"
-	line "you."
-
-	para "Also, #MON that"
-	line "know SURF will be"
-
-	para "able to use that"
-	line "move anytime."
+	line "you."	
 	
 	para "You can now level"
-	line "#MON to lvl 40"
+	line "#MON 4 higher"
 
 	para "I want you to have"
 	line "this too."

@@ -291,7 +291,7 @@ TrainerLassKrise:
 	
 NationalParkScyther:
 	cry SCYTHER
-	loadwildmon SCYTHER, 30
+	loadwildmon SCYTHER, 10
 	loadvar VAR_BATTLETYPE, BATTLETYPE_BOSS
 	startbattle
 	reloadmapafterbattle
@@ -300,7 +300,7 @@ NationalParkScyther:
 	
 NationalParkYanma:
 	cry YANMA
-	loadwildmon YANMA, 20
+	loadwildmon YANMA, 2
 	startbattle
 	reloadmapafterbattle
 	disappear NATIONALPARK_YANMA

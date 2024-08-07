@@ -109,7 +109,7 @@ BattleAnimations::
 	dw BattleAnim_Recover
 	dw BattleAnim_Harden
 	dw BattleAnim_Minimize
-	dw BattleAnim_Smokescreen
+	dw BattleAnim_Willowisp
 	dw BattleAnim_ConfuseRay
 	dw BattleAnim_Withdraw
 	dw BattleAnim_DefenseCurl
@@ -2774,7 +2774,7 @@ BattleAnim_Conversion2:
 	anim_wait 48
 	anim_ret
 
-BattleAnim_Smokescreen:
+BattleAnim_Willowisp:
 	anim_3gfx ANIM_GFX_HAZE, ANIM_GFX_EGG, ANIM_GFX_SMOKE
 	anim_sound 6, 2, SFX_THROW_BALL
 	anim_obj ANIM_OBJ_SMOKESCREEN, 64, 92, $6c

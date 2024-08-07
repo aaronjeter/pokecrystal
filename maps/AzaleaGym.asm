@@ -21,8 +21,28 @@ AzaleaGymBugsyScript:
 	writetext BugsyText_INeverLose
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
+	winlosstext BugsyText_ResearchIncomplete, 0
+	loadtrainer BUGSY, BUGSY3
+	sjump .Fight
+
+.Medium
+	winlosstext BugsyText_ResearchIncomplete, 0
+	loadtrainer BUGSY, BUGSY2
+	sjump .Fight
+
+.Easy
 	winlosstext BugsyText_ResearchIncomplete, 0
 	loadtrainer BUGSY, BUGSY1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BUGSY
@@ -37,11 +57,14 @@ AzaleaGymBugsyScript:
 	checkevent EVENT_GOT_TM49_FURY_CUTTER
 	iftrue .GotFuryCutter
 	readmem wLevelCap
-	addval 5
+	addval 4
 	writemem wLevelCap
 	readmem wBaseLevel
-	addval 5
+	addval 4
 	writemem wBaseLevel
+	readmem wWildLevel
+	addval 4
+	writemem wWildLevel
 	setevent EVENT_BEAT_TWINS_AMY_AND_MAY
 	setevent EVENT_BEAT_BUG_CATCHER_BENNY
 	setevent EVENT_BEAT_BUG_CATCHER_AL
@@ -58,8 +81,30 @@ AzaleaGymBugsyScript:
 
 .GotFuryCutter:
 	writetext BugsyRematchText
+	waitbutton
+	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext BugsyRematchLossText, 0
+	loadtrainer BUGSY, BUGSY3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext BugsyRematchLossText, 0
+	loadtrainer BUGSY, BUGSY2
+	sjump .Rematch
+
+.EasyRematch
 	winlosstext BugsyRematchLossText, 0
 	loadtrainer BUGSY, BUGSY1
+	sjump .Rematch
+	
+.Rematch
 	startbattle
 	reloadmapafterbattle
 	opentext
@@ -214,13 +259,7 @@ BugsyText_HiveBadgeSpeech:
 	cont "BADGE?"
 
 	para "You can now level"
-	line "#MON to 25"
-
-	para "#MON that know"
-	line "CUT will be able"
-
-	para "to use it outside"
-	line "of battle too."
+	line "#MON 4 higher."
 
 	para "Here, I also want"
 	line "you to have this."

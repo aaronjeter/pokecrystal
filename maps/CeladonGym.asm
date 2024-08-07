@@ -19,8 +19,28 @@ CeladonGymErikaScript:
 	writetext ErikaBeforeBattleText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
 	winlosstext ErikaBeatenText, 0
-	loadtrainer ERIKA, ERIKA1
+	loadtrainer ERIKA, ERIKA3
+	sjump .Fight
+
+.Medium
+	winlosstext ErikaBeatenText, 0
+	loadtrainer ERIKA, ERIKA2
+	sjump .Fight
+
+.Easy
+	winlosstext FalknerWinLossText, 0
+	loadtrainer FALKNER, FALKNER1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ERIKA
@@ -33,9 +53,20 @@ CeladonGymErikaScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_RAINBOWBADGE
+	readvar VAR_BADGES
+	scall CeledonGymActivateRockets
 .FightDone:
 	checkevent EVENT_GOT_TM19_GIGA_DRAIN
 	iftrue .GotGigaDrain
+	readmem wBaseLevel
+	addval 3
+	writemem wBaseLevel
+	readmem wLevelCap
+	addval 3
+	writemem wLevelCap
+	readmem wWildLevel
+	addval 3
+	writemem wWildLevel
 	writetext ErikaExplainTMText
 	promptbutton
 	verbosegiveitem TM_GIGA_DRAIN
@@ -45,7 +76,46 @@ CeladonGymErikaScript:
 	writetext ErikaAfterBattleText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext ErikaBeatenText, 0
+	loadtrainer ERIKA, ERIKA3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext ErikaBeatenText, 0
+	loadtrainer ERIKA, ERIKA2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext ErikaBeatenText, 0
+	loadtrainer ERIKA, ERIKA1
+	sjump .Rematch
+	
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	opentext
+	writetext ErikaAfterBattleText
+	waitbutton
+	closetext	
 	end
+	
+CeledonGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 TrainerLassMichelle:
 	trainer LASS, MICHELLE, EVENT_BEAT_LASS_MICHELLE, LassMichelleSeenText, LassMichelleBeatenText, 0, .Script

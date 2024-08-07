@@ -18,8 +18,28 @@ VermilionGymSurgeScript:
 	writetext LtSurgeIntroText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
+	winlosstext LtSurgeWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE3
+	sjump .Fight
+
+.Medium
+	winlosstext LtSurgeWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE2
+	sjump .Fight
+
+.Easy
 	winlosstext LtSurgeWinLossText, 0
 	loadtrainer LT_SURGE, LT_SURGE1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_LTSURGE
@@ -31,6 +51,17 @@ VermilionGymSurgeScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_THUNDERBADGE
+	readmem wBaseLevel
+	addval 3
+	writemem wBaseLevel
+	readmem wLevelCap
+	addval 3
+	writemem wLevelCap
+	readmem wWildLevel
+	addval 3
+	writemem wWildLevel
+	readvar VAR_BADGES
+	scall VermilionGymActivateRockets
 	writetext LtSurgeThunderBadgeText
 	waitbutton
 	closetext
@@ -40,7 +71,42 @@ VermilionGymSurgeScript:
 	writetext LtSurgeFightDoneText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext LtSurgeWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext LtSurgeWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext LtSurgeWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE1
+	sjump .Rematch
+	
+.Rematch	
+	startbattle
+	reloadmapafterbattle
 	end
+	
+VermilionGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+	
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 TrainerGentlemanGregory:
 	trainer GENTLEMAN, GREGORY, EVENT_BEAT_GENTLEMAN_GREGORY, GentlemanGregorySeenText, GentlemanGregoryBeatenText, 0, .Script

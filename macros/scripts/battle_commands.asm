@@ -53,6 +53,8 @@ ENDM
 	command screen                  ; 2e
 	command poison                  ; 2f
 	command paralyze                ; 30
+	command burn                    ; 30
+	command freeze                  ; 30
 	command substitute              ; 31
 	command rechargenextturn        ; 32
 	command mimic                   ; 33

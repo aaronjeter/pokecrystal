@@ -19,8 +19,28 @@ SaffronGymSabrinaScript:
 	writetext SabrinaIntroText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
+	winlosstext SabrinaWinLossText, 0
+	loadtrainer SABRINA, SABRINA3
+	sjump .Fight
+
+.Medium
+	winlosstext SabrinaWinLossText, 0
+	loadtrainer SABRINA, SABRINA2
+	sjump .Fight
+
+.Easy
 	winlosstext SabrinaWinLossText, 0
 	loadtrainer SABRINA, SABRINA1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_SABRINA
@@ -33,6 +53,17 @@ SaffronGymSabrinaScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_MARSHBADGE
+	readmem wBaseLevel
+	addval 3
+	writemem wBaseLevel
+	readmem wLevelCap
+	addval 3
+	writemem wLevelCap
+	readmem wWildLevel
+	addval 3
+	writemem wWildLevel
+	readvar VAR_BADGES
+	scall SaffronGymActivateRockets
 	writetext SabrinaMarshBadgeText
 	waitbutton
 	closetext
@@ -42,7 +73,42 @@ SaffronGymSabrinaScript:
 	writetext SabrinaFightDoneText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext SabrinaWinLossText, 0
+	loadtrainer SABRINA, SABRINA3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext SabrinaWinLossText, 0
+	loadtrainer SABRINA, SABRINA2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext SabrinaWinLossText, 0
+	loadtrainer SABRINA, SABRINA1
+	sjump .Rematch
+	
+.Rematch	
+	startbattle
+	reloadmapafterbattle
 	end
+	
+SaffronGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
+	end
+	
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 TrainerMediumRebecca:
 	trainer MEDIUM, REBECCA, EVENT_BEAT_MEDIUM_REBECCA, MediumRebeccaSeenText, MediumRebeccaBeatenText, 0, .Script

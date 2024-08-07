@@ -108,7 +108,7 @@ MoveDescriptions::
 	dw RecoverDescription
 	dw HardenDescription
 	dw MinimizeDescription
-	dw SmokescreenDescription
+	dw WillowispDescription
 	dw ConfuseRayDescription
 	dw WithdrawDescription
 	dw DefenseCurlDescription
@@ -695,9 +695,9 @@ MinimizeDescription:
 	db   "Heightens evasive-"
 	next "ness.@"
 
-SmokescreenDescription:
-	db   "Lowers the foe's"
-	next "accuracy.@"
+WillowispDescription:
+	db   "inflicts a burn"
+	next "upon the foe.@"
 
 ConfuseRayDescription:
 	db   "A move that causes"

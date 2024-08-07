@@ -21,8 +21,28 @@ MahoganyGymPryceScript:
 	writetext PryceText_Intro
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
+	winlosstext PryceText_Impressed, 0
+	loadtrainer PRYCE, PRYCE3
+	sjump .Fight
+
+.Medium
+	winlosstext PryceText_Impressed, 0
+	loadtrainer PRYCE, PRYCE2
+	sjump .Fight
+
+.Easy
 	winlosstext PryceText_Impressed, 0
 	loadtrainer PRYCE, PRYCE1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_PRYCE
@@ -37,11 +57,14 @@ MahoganyGymPryceScript:
 	checkevent EVENT_GOT_TM16_ICY_WIND
 	iftrue PryceScript_Defeat
 	readmem wLevelCap
-	addval 5
+	addval 4
 	writemem wLevelCap
 	readmem wBaseLevel
-	addval 5
+	addval 4
 	writemem wBaseLevel
+	readmem wWildLevel
+	addval 4
+	writemem wWildLevel
 	setevent EVENT_BEAT_SKIER_ROXANNE
 	setevent EVENT_BEAT_SKIER_CLARISSA
 	setevent EVENT_BEAT_BOARDER_RONALD
@@ -58,8 +81,27 @@ MahoganyGymPryceScript:
 	end
 
 PryceScript_Defeat:
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext PryceText_CherishYourPokemon, 0
+	loadtrainer PRYCE, PRYCE3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext PryceText_CherishYourPokemon, 0
+	loadtrainer PRYCE, PRYCE2
+	sjump .Rematch
+
+.EasyRematch
 	winlosstext PryceText_CherishYourPokemon, 0
 	loadtrainer PRYCE, PRYCE1
+	sjump .Rematch
+	
+.Rematch
 	startbattle
 	reloadmapafterbattle
 	
@@ -245,7 +287,7 @@ PryceText_GlacierBadgeSpeech:
 	cont "stats of #MON."
 	
 	para "You can now level"
-	line "#MON to lvl 50"
+	line "#MON 4 higher"
 
 	para "It also lets your"
 	line "#MON use WHIRL-"

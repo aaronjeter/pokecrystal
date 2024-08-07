@@ -82,47 +82,21 @@ OlivinePortWalkUpToShipScript:
 	opentext
 	checkevent EVENT_FAST_SHIP_FIRST_TIME
 	iffalse .FirstTime
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .NextShipMonday
-	ifequal SATURDAY, .NextShipMonday
-	ifequal TUESDAY, .NextShipFriday
-	ifequal WEDNESDAY, .NextShipFriday
-	ifequal THURSDAY, .NextShipFriday
 .FirstTime:
 	writetext OlivinePortAskBoardText
 	yesorno
 	iffalse OlivinePortNotRidingMoveAwayScript
 	writetext OlivinePortAskTicketText
 	promptbutton
-	checkitem S_S_TICKET
-	iffalse .NoTicket
+	writetext OlivinePortElmAssistantText
+	promptbutton
+	verbosegiveitem S_S_TICKET
 	writetext OlivinePortFlashTicketText
 	waitbutton
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	applymovement PLAYER, OlivinePortApproachFastShipFirstTimeMovement
 	sjump OlivinePortSailorAtGangwayScript
-
-.NoTicket:
-	writetext OlivinePortNoTicketText
-	waitbutton
-	closetext
-	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
-	end
-
-.NextShipMonday:
-	writetext OlivinePortMondayShipText
-	waitbutton
-	closetext
-	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
-	end
-
-.NextShipFriday:
-	writetext OlivinePortFridayShipText
-	waitbutton
-	closetext
-	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
-	end
 
 .skip:
 	end
@@ -147,20 +121,14 @@ OlivinePortSailorAfterHOFScript:
 	iftrue OlivinePortAlreadyRodeScript
 	checkevent EVENT_FAST_SHIP_FIRST_TIME
 	iffalse .FirstTime
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .NextShipMonday
-	ifequal SATURDAY, .NextShipMonday
-	ifequal TUESDAY, .NextShipFriday
-	ifequal WEDNESDAY, .NextShipFriday
-	ifequal THURSDAY, .NextShipFriday
 .FirstTime:
 	writetext OlivinePortAskBoardText
 	yesorno
 	iffalse OlivinePortNotRidingScript
 	writetext OlivinePortAskTicketText
 	promptbutton
-	checkitem S_S_TICKET
-	iffalse .NoTicket
+	writetext OlivinePortElmAssistantText
+	verbosegiveitem S_S_TICKET
 	writetext OlivinePortFlashTicketText
 	waitbutton
 	closetext
@@ -173,24 +141,6 @@ OlivinePortSailorAfterHOFScript:
 .Right:
 	applymovement PLAYER, OlivinePortApproachFastShipAfterHOFRightMovement
 	sjump OlivinePortSailorAtGangwayScript
-
-.NoTicket:
-	writetext OlivinePortNoTicketText
-	waitbutton
-	closetext
-	end
-
-.NextShipMonday:
-	writetext OlivinePortMondayShipText
-	waitbutton
-	closetext
-	end
-
-.NextShipFriday:
-	writetext OlivinePortFridayShipText
-	waitbutton
-	closetext
-	end
 
 OlivinePortSailorBeforeHOFScript:
 	jumptextfaceplayer OlivinePortSailorBeforeHOFText
@@ -319,19 +269,11 @@ OlivinePortFlashTicketText:
 	para "That's it."
 	line "Thank you!"
 	done
-
-OlivinePortNoTicketText:
-	text "<PLAYER> tried to"
-	line "show the S.S."
-	cont "TICKET…"
-
-	para "…But no TICKET!"
-
-	para "Sorry!"
-	line "You may board only"
-
-	para "if you have an"
-	line "S.S.TICKET."
+	
+OlivinePortElmAssistantText:
+	text "Oh, you're Elm's"
+	line "assistant. I have"
+	line "this for you."
 	done
 
 OlivinePortMondayShipText:

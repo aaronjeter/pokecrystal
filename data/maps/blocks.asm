@@ -793,6 +793,9 @@ IlexForest_Blocks:
 	
 IlexForestWest_Blocks:
 	INCBIN "maps/IlexForestWest.blk"
+	
+TestRoom_Blocks:
+	INCBIN "maps/TestRoom.blk"
 
 DarkCaveVioletEntrance_Blocks:
 	INCBIN "maps/DarkCaveVioletEntrance.blk"

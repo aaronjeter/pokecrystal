@@ -368,14 +368,6 @@ MonSubMenu_GetNextEvoAttackByte:
 	
 
 CanUseFlash:
-; Step 1: Badge Check
-	ld de, ENGINE_ZEPHYRBADGE
-	ld b, CHECK_FLAG
-	farcall EngineFlagAction
-	ld a, c
-	and a
-	ret z ; .fail, dont have needed badge
-
 ; Step 2: Location Check
 	farcall SpecialAerodactylChamber
 	jr c, .valid_location ; can use flash
@@ -414,14 +406,6 @@ CanUseFlash:
 	
 	
 CanUseFly:
-; Step 1: Badge Check
-	ld de, ENGINE_STORMBADGE
-	ld b, CHECK_FLAG
-	farcall EngineFlagAction
-	ld a, c
-	and a
-	ret z ; .fail, dont have needed badge
-
 ; Step 2: Location Check
 	call GetMapEnvironment
 	call CheckOutdoorMap

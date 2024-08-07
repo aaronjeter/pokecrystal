@@ -38,8 +38,28 @@ CianwoodGymChuckScript:
 	writetext ChuckIntroText3
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
+	winlosstext ChuckLossText, 0
+	loadtrainer CHUCK, CHUCK3
+	sjump .Fight
+
+.Medium
+	winlosstext ChuckLossText, 0
+	loadtrainer CHUCK, CHUCK2
+	sjump .Fight
+
+.Easy
 	winlosstext ChuckLossText, 0
 	loadtrainer CHUCK, CHUCK1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CHUCK
@@ -49,11 +69,14 @@ CianwoodGymChuckScript:
 	waitsfx
 	setflag ENGINE_STORMBADGE
 	readmem wLevelCap
-	addval 5
+	addval 4
 	writemem wLevelCap
 	readmem wBaseLevel
-	addval 5
+	addval 4
 	writemem wBaseLevel
+	readmem wWildLevel
+	addval 4
+	writemem wWildLevel
 	readvar VAR_BADGES
 	scall CianwoodGymActivateRockets
 .FightDone:
@@ -78,8 +101,28 @@ CianwoodGymChuckScript:
 	writetext ChuckRematchText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext ChuckRematchText, 0
+	loadtrainer CHUCK, CHUCK3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext ChuckRematchText, 0
+	loadtrainer CHUCK, CHUCK2
+	sjump .Rematch
+
+.EasyRematch
 	winlosstext ChuckRematchText, 0
 	loadtrainer CHUCK, CHUCK1
+	sjump .Rematch
+	
+.Rematch
 	startbattle
 	reloadmapafterbattle
 	writetext ChuckAfterText
@@ -249,13 +292,7 @@ ChuckExplainBadgeText:
 	line "traded ones."
 	
 	para "You can now level"
-	line "#MON to level 40"
-
-	para "It also lets your"
-	line "#MON use FLY"
-
-	para "when you're not in"
-	line "a battle."
+	line "#MON 4 higher"
 
 	para "Here, take this"
 	line "too!"

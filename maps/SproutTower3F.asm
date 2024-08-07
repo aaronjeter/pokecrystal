@@ -126,7 +126,7 @@ TrainerSageNeal:
 	
 SproutTower3FBellsprout:
 	cry BELLSPROUT
-	loadwildmon BELLSPROUT, 15
+	loadwildmon BELLSPROUT, 10
 	loadvar VAR_BATTLETYPE, BATTLETYPE_BOSS
 	startbattle
 	reloadmapafterbattle

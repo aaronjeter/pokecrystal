@@ -1,9 +1,9 @@
 	db RHYHORN ; 111
 
-	db  80,  85,  95,  25,  30,  30
+	db  80,  85,  95,  30,  35,  35
 	;   hp  atk  def  spd  sat  sdf
 
-	db GROUND, ROCK ; type
+	db DRAGON, ROCK ; type
 	db 120 ; catch rate
 	db 135 ; base exp
 	db NO_ITEM, NO_ITEM ; items

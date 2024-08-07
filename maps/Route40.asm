@@ -139,7 +139,7 @@ Route40HiddenHyperPotion:
 	
 Route40Staryu:
 	cry STARYU
-	loadwildmon STARYU, 25
+	loadwildmon STARYU, 5
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE40_STARYU
@@ -147,7 +147,7 @@ Route40Staryu:
 	
 Route40Krabby:
 	cry KRABBY
-	loadwildmon KRABBY, 25
+	loadwildmon KRABBY, 3
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE40_KRABBY

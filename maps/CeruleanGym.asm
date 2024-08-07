@@ -64,8 +64,28 @@ CeruleanGymMistyScript:
 	writetext MistyIntroText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
+	winlosstext MistyWinLossText, 0
+	loadtrainer MISTY, MISTY3
+	sjump .Fight
+
+.Medium
+	winlosstext MistyWinLossText, 0
+	loadtrainer MISTY, MISTY2
+	sjump .Fight
+
+.Easy
 	winlosstext MistyWinLossText, 0
 	loadtrainer MISTY, MISTY1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_MISTY
@@ -77,11 +97,57 @@ CeruleanGymMistyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_CASCADEBADGE
+	readmem wBaseLevel
+	addval 3
+	writemem wBaseLevel
+	readmem wLevelCap
+	addval 3
+	writemem wLevelCap
+	readmem wWildLevel
+	addval 3
+	writemem wWildLevel
+	readvar VAR_BADGES
+	scall CeruleanGymActivateRockets
 .FightDone:
 	writetext MistyFightDoneText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext MistyWinLossText, 0
+	loadtrainer MISTY, MISTY3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext MistyWinLossText, 0
+	loadtrainer MISTY, MISTY2
+	sjump .Rematch
+
+.EasyRematch
+	winlosstext MistyWinLossText, 0
+	loadtrainer MISTY, MISTY1
+	sjump .Rematch
+	
+.Rematch	
+	startbattle
+	reloadmapafterbattle
+	end	
+	
+CeruleanGymActivateRockets:
+	ifequal 7, .RadioTowerRockets
+	ifequal 6, .GoldenrodRockets
 	end
+	
+.GoldenrodRockets:
+	jumpstd GoldenrodRocketsScript
+
+.RadioTowerRockets:
+	jumpstd RadioTowerRocketsScript
 
 TrainerSwimmerfDiana:
 	trainer SWIMMERF, DIANA, EVENT_BEAT_SWIMMERF_DIANA, SwimmerfDianaSeenText, SwimmerfDianaBeatenText, 0, .Script

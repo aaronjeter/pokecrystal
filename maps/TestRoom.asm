@@ -2,17 +2,16 @@
 	
 	
 
-IlexForestWest_MapScripts:
+TestRoom_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-IlexForestWest_MapEvents:
+TestRoom_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 39, 34, ILEX_FOREST, 5
-	warp_event 39, 35, ILEX_FOREST, 4
+	warp_event 19, 18, ELMS_LAB, 3
 
 	def_coord_events
 

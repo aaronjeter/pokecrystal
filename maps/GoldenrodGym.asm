@@ -28,8 +28,28 @@ GoldenrodGymWhitneyScript:
 	writetext WhitneyBeforeText
 	waitbutton
 	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .Hard
+	ifgreater 2, .Medium
+	sjump .Easy	
+
+.Hard
+	winlosstext WhitneyShouldntBeSoSeriousText, 0
+	loadtrainer WHITNEY, WHITNEY3
+	sjump .Fight
+
+.Medium
+	winlosstext WhitneyShouldntBeSoSeriousText, 0
+	loadtrainer WHITNEY, WHITNEY2
+	sjump .Fight
+
+.Easy
 	winlosstext WhitneyShouldntBeSoSeriousText, 0
 	loadtrainer WHITNEY, WHITNEY1
+	sjump .Fight
+
+.Fight
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_WHITNEY
@@ -69,11 +89,14 @@ GoldenrodGymWhitneyScript:
 	iffalse .NoRoomForAttract
 	setevent EVENT_GOT_TM45_ATTRACT
 	readmem wLevelCap
-	addval 5
+	addval 4
 	writemem wLevelCap
 	readmem wBaseLevel
-	addval 5
+	addval 4
 	writemem wBaseLevel
+	readmem wWildLevel
+	addval 4
+	writemem wWildLevel
 	writetext WhitneyAttractText
 	waitbutton
 	closetext
@@ -81,8 +104,30 @@ GoldenrodGymWhitneyScript:
 
 .GotAttract:
 	writetext WhitneyRematchText
+	waitbutton
+	closetext
+	
+	readvar VAR_BADGES
+	ifgreater 7, .HardRematch
+	ifgreater 2, .MediumRematch
+	sjump .EasyRematch	
+
+.HardRematch
+	winlosstext WhitneyGoodCryText, 0
+	loadtrainer WHITNEY, WHITNEY3
+	sjump .Rematch
+
+.MediumRematch
+	winlosstext WhitneyGoodCryText, 0
+	loadtrainer WHITNEY, WHITNEY2
+	sjump .Rematch
+
+.EasyRematch
 	winlosstext WhitneyGoodCryText, 0
 	loadtrainer WHITNEY, WHITNEY1
+	sjump .Rematch
+	
+.Rematch
 	startbattle
 	reloadmapafterbattle
 .NoRoomForAttract:
@@ -267,19 +312,9 @@ PlayerReceivedPlainBadgeText:
 	line "PLAINBADGE."
 	done
 
-WhitneyPlainBadgeText:
-	text "PLAINBADGE lets"
-	line "your #MON use"
-
-	para "STRENGTH outside"
-	line "of battle."
-
-	para "It also boosts"
-	line "your #MON's"
-	cont "SPEED."
-	
-	para "You can now level"
-	line "#MON to lvl 30"
+WhitneyPlainBadgeText:	
+	text "You can now level"
+	line "#MON 4 higher."
 
 	para "Oh, you can have"
 	line "this too!"

@@ -118,7 +118,7 @@ Route37HiddenEther:
 	
 Route37Girafarig1:
 	cry GIRAFARIG
-	loadwildmon GIRAFARIG, 25
+	loadwildmon GIRAFARIG, 3
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE27_GIRAFARIG1
@@ -126,7 +126,7 @@ Route37Girafarig1:
 	
 Route37Girafarig2:
 	cry GIRAFARIG
-	loadwildmon GIRAFARIG, 27
+	loadwildmon GIRAFARIG, 5
 	startbattle
 	reloadmapafterbattle
 	disappear ROUTE27_GIRAFARIG2

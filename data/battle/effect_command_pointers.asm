@@ -53,6 +53,8 @@ BattleCommandPointers:
 	dw BattleCommand_Screen
 	dw BattleCommand_Poison
 	dw BattleCommand_Paralyze
+	dw BattleCommand_Burn
+	dw BattleCommand_Freeze
 	dw BattleCommand_Substitute
 	dw BattleCommand_RechargeNextTurn
 	dw BattleCommand_Mimic

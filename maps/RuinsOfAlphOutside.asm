@@ -133,7 +133,7 @@ RuinsOfAlphResearchCenterSign:
 	
 RuinsOfAlphOutsideNatu:
 	cry NATU
-	loadwildmon NATU, 13
+	loadwildmon NATU, 4
 	startbattle
 	reloadmapafterbattle
 	disappear RUINSOFALPHOUTSIDE_NATU

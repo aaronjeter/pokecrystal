@@ -468,7 +468,7 @@ IlexForestShrineScript:
 	pause 20
 	clearflag ENGINE_FOREST_IS_RESTLESS
 	special CelebiShrineEvent
-	loadwildmon CELEBI, 30
+	loadwildmon CELEBI, 10
 	startbattle
 	reloadmapafterbattle
 	pause 20
@@ -487,7 +487,7 @@ IlexForestShrineScript:
 	
 IlexForest_Bulbasaur:
 	cry BULBASAUR
-	loadwildmon BULBASAUR, 12
+	loadwildmon BULBASAUR, 4
 	startbattle
 	reloadmapafterbattle
 	disappear ILEXFOREST_BULBASAUR
@@ -495,7 +495,7 @@ IlexForest_Bulbasaur:
 	
 IlexForest_Ledian:
 	cry LEDIAN
-	loadwildmon LEDIAN, 25
+	loadwildmon LEDIAN, 15
 	loadvar VAR_BATTLETYPE, BATTLETYPE_BOSS
 	startbattle
 	reloadmapafterbattle
@@ -504,7 +504,7 @@ IlexForest_Ledian:
 	
 IlexForest_Chikorita:
 	cry CHIKORITA
-	loadwildmon CHIKORITA, 12
+	loadwildmon CHIKORITA, 6
 	startbattle
 	reloadmapafterbattle
 	disappear ILEXFOREST_CHIKORITA
@@ -512,7 +512,7 @@ IlexForest_Chikorita:
 
 IlexForest_Psyduck:
 	cry PSYDUCK
-	loadwildmon PSYDUCK, 16
+	loadwildmon PSYDUCK, 2
 	startbattle
 	reloadmapafterbattle
 	disappear ILEXFOREST_PSYDUCK
@@ -979,8 +979,8 @@ IlexForest_MapEvents:
 	warp_event  1,  5, ROUTE_34_ILEX_FOREST_GATE, 3
 	warp_event  3, 42, ILEX_FOREST_AZALEA_GATE, 1
 	warp_event  3, 43, ILEX_FOREST_AZALEA_GATE, 2
-	warp_event  0, 11, ILEX_FOREST_WEST, 1
-	warp_event  0, 10, ILEX_FOREST_WEST, 2
+	warp_event  0, 11, ILEX_FOREST_WEST, 2
+	warp_event  0, 10, ILEX_FOREST_WEST, 1
 
 	def_coord_events
 

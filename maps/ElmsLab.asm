@@ -191,8 +191,8 @@ TotodilePokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic DELIBIRD
-	cry DELIBIRD
+	pokepic MANTINE
+	cry MANTINE
 	waitbutton
 	closepokepic
 	opentext
@@ -204,12 +204,12 @@ TotodilePokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, DELIBIRD
+	getmonname STRING_BUFFER_3, MANTINE
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke DELIBIRD, 5, BERRY
+	givepoke MANTINE, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
 	sjump ElmDirectionsScript
@@ -219,8 +219,8 @@ ChikoritaPokeBallScript:
 	iftrue LookAtElmPokeBallScript
 	turnobject ELMSLAB_ELM, DOWN
 	refreshscreen
-	pokepic DELIBIRD
-	cry DELIBIRD
+	pokepic YANMA
+	cry YANMA
 	waitbutton
 	closepokepic
 	opentext
@@ -232,12 +232,12 @@ ChikoritaPokeBallScript:
 	writetext ChoseStarterText
 	promptbutton
 	waitsfx
-	getmonname STRING_BUFFER_3, DELIBIRD
+	getmonname STRING_BUFFER_3, YANMA
 	writetext ReceivedStarterText
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke DELIBIRD, 5, BERRY
+	givepoke YANMA, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
@@ -409,7 +409,6 @@ ElmGiveTicketScript:
 	promptbutton
 	verbosegiveitem S_S_TICKET
 	setevent EVENT_GOT_SS_TICKET_FROM_ELM
-	loadmem wLevelCap, 70
 	writetext ElmGiveTicketText2
 	waitbutton
 	closetext
@@ -496,10 +495,9 @@ AideScript_GiveYouBalls:
 	opentext
 	writetext AideText_GiveYouExp
 	promptbutton
-	getitemname STRING_BUFFER_4, EXP_SHARE
-	scall AideScript_ReceiveTheBalls
+	verbosegiveitem HM_FLY
+	setevent EVENT_GOT_HM02_FLY
 	closetext
-	giveitem EXP_SHARE	
 	setscene SCENE_ELMSLAB_NOOP
 	end
 
@@ -853,19 +851,19 @@ LabWhereGoingText:
 TakeCyndaquilText:
 	text "ELM: You'll take"
 	line "DELIBIRD, the"
-	cont "ICE Bird?"
+	cont "delivery bird?"
 	done
 
 TakeTotodileText:
 	text "ELM: So, you like"
-	line "DELIBIRD, "
-	cont "Little Santa?"
+	line "MANTINE, "
+	cont "the kite?"
 	done
 
 TakeChikoritaText:	
 	text "ELM: Do you want"
-	line "DELIBIRD, the"
-	cont "Delivery bird?"
+	line "YANMA, the"
+	cont "dragonfly?"
 	done
 
 DidntChooseStarterText:
@@ -1353,6 +1351,7 @@ ElmsLab_MapEvents:
 	def_warp_events
 	warp_event  4, 11, NEW_BARK_TOWN, 1
 	warp_event  5, 11, NEW_BARK_TOWN, 1
+	warp_event  9, 8,  TEST_ROOM, 1
 
 	def_coord_events
 	coord_event  4,  6, SCENE_ELMSLAB_CANT_LEAVE, LabTryToLeaveScript
